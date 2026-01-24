@@ -4,11 +4,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
 import { ArrowDown } from "lucide-react";
 
+import Scene from "@/components/canvas/Scene";
+import ParticleWorld from "@/components/canvas/ParticleWorld";
+
+import Act0 from "@/components/acts/Act0";
 import Act1 from "@/components/acts/Act1";
 import Act2 from "@/components/acts/Act2";
 import Act3 from "@/components/acts/Act3";
+import DeepPillars from "@/components/acts/DeepPillars";
 import Act4 from "@/components/acts/Act4";
+import Scenarios from "@/components/acts/Scenarios";
 import Act5 from "@/components/acts/Act5";
+import NeuralQA from "@/components/acts/NeuralQA";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,13 +80,19 @@ export default function Home() {
 
   return (
     <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-sans selection:bg-cyan-500/30">
+      {/* Persistent 3D Background */}
+      <Scene>
+        <ParticleWorld />
+      </Scene>
+
       {/* Hero Section */}
-      <section className="hero-section relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="hero-section relative h-screen flex items-center justify-center overflow-hidden z-10">
         <div className="hero-bg absolute inset-0 z-0">
+          {/* Fallback image for mobile or low-power mode */}
           <img
             src="/images/hero-bg.jpg"
             alt="Digital Landscape"
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-40 mix-blend-overlay"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
         </div>
@@ -98,14 +111,18 @@ export default function Home() {
       </section>
 
       {/* Modular Acts */}
+      <Act0 />
       <Act1 />
       <Act2 />
       <Act3 />
+      <DeepPillars />
       <Act4 />
+      <Scenarios />
       <Act5 />
+      <NeuralQA />
 
       {/* Footer */}
-      <footer className="py-12 border-t border-white/10 bg-black">
+      <footer className="py-12 border-t border-white/10 bg-black relative z-10">
         <div className="container px-4 text-center">
           <p className="font-heading text-2xl font-bold mb-4 text-primary">Manus AI</p>
           <p className="text-muted-foreground">
