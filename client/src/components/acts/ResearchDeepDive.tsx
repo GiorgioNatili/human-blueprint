@@ -33,11 +33,20 @@ export default function ResearchDeepDive() {
     <div className="relative z-10 bg-background py-20 border-t border-white/5">
       <Section>
         <div className="container px-4 max-w-4xl mx-auto">
-          <div className="flex items-center gap-4 mb-8">
-            <BookOpen className="w-6 h-6 text-cyan-400" />
-            <h2 className="font-heading text-2xl font-bold text-white">
-              Research Foundation
-            </h2>
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center gap-4">
+              <BookOpen className="w-6 h-6 text-cyan-400" />
+              <h2 className="font-heading text-2xl font-bold text-white">
+                Research Foundation
+              </h2>
+            </div>
+            <a 
+              href="/Research_Foundation_The_Human_Blueprint.pdf" 
+              download
+              className="px-4 py-2 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/50 rounded-lg transition-all flex items-center gap-2 text-sm font-bold"
+            >
+              Download Report (PDF)
+            </a>
           </div>
 
           <div className="grid gap-4">
