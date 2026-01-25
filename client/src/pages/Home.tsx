@@ -10,12 +10,15 @@ import ParticleWorld from "@/components/canvas/ParticleWorld";
 import Act0 from "@/components/acts/Act0";
 import Act1 from "@/components/acts/Act1";
 import Act2 from "@/components/acts/Act2";
+import CognitiveImpact from "@/components/acts/CognitiveImpact"; // New
 import Act3 from "@/components/acts/Act3";
 import DeepPillars from "@/components/acts/DeepPillars";
 import Act4 from "@/components/acts/Act4";
+import ParadoxExplorer from "@/components/acts/ParadoxExplorer"; // New
 import Scenarios from "@/components/acts/Scenarios";
 import Act5 from "@/components/acts/Act5";
 import NeuralQA from "@/components/acts/NeuralQA";
+import ResearchDeepDive from "@/components/acts/ResearchDeepDive";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -114,19 +117,22 @@ export default function Home() {
       <Act0 />
       <Act1 />
       <Act2 />
+      <CognitiveImpact /> {/* New Module */}
       <Act3 />
       <DeepPillars />
       <Act4 />
+      <ParadoxExplorer /> {/* New Module */}
       <Scenarios />
       <Act5 />
       <NeuralQA />
+      <ResearchDeepDive />
 
       {/* Footer */}
       <footer className="py-12 border-t border-white/10 bg-black relative z-10">
         <div className="container px-4 text-center">
           <p className="font-heading text-2xl font-bold mb-4 text-primary">Manus AI</p>
           <p className="text-muted-foreground">
-            © 2026 The Human Blueprint. Private Speaker Edition.
+            © 2026 The Human Blueprint. Research Foundation Edition.
           </p>
         </div>
       </footer>

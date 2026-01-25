@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Section } from "@/components/ui/Section";
 import Scene from "@/components/canvas/Scene";
-import IcebergModel from "@/components/canvas/IcebergModel";
+import NeuralMesh from "@/components/canvas/NeuralMesh";
 
 export default function Act2() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -55,10 +55,10 @@ export default function Act2() {
         {/* Background Gradient that gets darker */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-blue-950/50 to-black z-0" />
         
-        {/* The Iceberg Image (Now 3D) */}
-        <div className="iceberg-image absolute w-full h-full z-10 pointer-events-none">
+        {/* The Neural Mesh (Subtle Background) */}
+        <div className="iceberg-image absolute w-full h-full z-0 pointer-events-none opacity-50">
            <Scene>
-             <IcebergModel />
+             <NeuralMesh />
            </Scene>
         </div>
 
