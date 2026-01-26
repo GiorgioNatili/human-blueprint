@@ -134,6 +134,16 @@ export default function Home() {
       <footer className="py-12 border-t border-white/10 bg-black relative z-10">
         <div className="container px-4 text-center">
           <p className="font-heading text-2xl font-bold mb-4 text-primary">The Human Blueprint</p>
+          <div className="mb-8">
+            <a 
+              href="/Research_Foundation_The_Human_Blueprint.pdf" 
+              download
+              className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/50 rounded-full transition-all font-bold text-lg hover:scale-105"
+            >
+              <ArrowDown className="w-5 h-5" />
+              Download Full Research Report
+            </a>
+          </div>
           <p className="text-muted-foreground mb-4">
             © 2026 Giorgio Natili. All rights reserved.
           </p>

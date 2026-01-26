@@ -40,13 +40,7 @@ export default function ResearchDeepDive() {
                 Research Foundation
               </h2>
             </div>
-            <a 
-              href="/Research_Foundation_The_Human_Blueprint.pdf" 
-              download
-              className="px-4 py-2 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/50 rounded-lg transition-all flex items-center gap-2 text-sm font-bold"
-            >
-              Download Report (PDF)
-            </a>
+            {/* Download link moved to footer */}
           </div>
 
           <div className="grid gap-4">

@@ -55,12 +55,12 @@ export default function Act2() {
         {/* Background Gradient that gets darker */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-blue-950/50 to-black z-0" />
         
-        {/* The Iceberg Image (Restored) */}
-        <div className="iceberg-image absolute w-[800px] h-[800px] z-10 mix-blend-screen opacity-90">
+        {/* The Iceberg Image (Widened & Immersive) */}
+        <div className="iceberg-image absolute w-[120vw] h-[120vh] z-10 mix-blend-screen opacity-80 pointer-events-none">
            <img
             src="/images/iceberg-abstract.png"
             alt="Abstract Iceberg"
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover"
           />
         </div>
 

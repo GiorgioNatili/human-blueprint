@@ -45,6 +45,7 @@
 }
 
 :root {
+  font-size: 120%; /* Increased base font size by 20% */
   /* Deep Indigo - Primary Background */
   --background: oklch(0.15 0.05 265);
   --foreground: oklch(0.92 0.005 65); /* Increased brightness for better contrast */
