@@ -43,15 +43,19 @@ export default function ParadoxExplorer() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       panelsRef.current.forEach((panel, i) => {
+        // Ensure each panel covers the previous one completely
         ScrollTrigger.create({
           trigger: panel,
-          start: "top top",
-          pin: true,
-          pinSpacing: false,
-          snap: 1,
+          start: "top top", 
+          pin: true, 
+          pinSpacing: false, 
+          scrub: true,
+          // Add z-index management to ensure proper stacking
+          onEnter: () => gsap.set(panel, { zIndex: i + 10 }),
+          onEnterBack: () => gsap.set(panel, { zIndex: i + 10 }),
         });
 
-        // Animate content in
+        // Animate content in with a slight delay to avoid overlap
         gsap.fromTo(panel.querySelector(".content-wrapper"), 
           { opacity: 0, y: 50 },
           { 
@@ -60,7 +64,7 @@ export default function ParadoxExplorer() {
             duration: 1,
             scrollTrigger: {
               trigger: panel,
-              start: "top center",
+              start: "top center", // Start animation when panel is halfway up
               end: "center center",
               scrub: 1,
             }
@@ -88,6 +92,7 @@ export default function ParadoxExplorer() {
           key={i}
           ref={(el) => { if (el) panelsRef.current[i] = el; }}
           className={`h-screen w-full flex items-center justify-center relative overflow-hidden bg-gradient-to-b ${p.bg}`}
+          style={{ zIndex: i }} // Initial z-index
         >
           {/* Background Elements */}
           <div className="absolute inset-0 bg-[url('/images/texture-noise.jpg')] opacity-20 mix-blend-overlay pointer-events-none" />

@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Brain, Cpu, Activity, Zap, ArrowDown } from "lucide-react";
+import { Brain, Cpu, Zap, ArrowDown } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,42 +12,34 @@ export default function CognitiveImpact() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Pin the container
+      // Pin the container for a longer duration to ensure readability
       ScrollTrigger.create({
         trigger: containerRef.current,
         start: "top top",
-        end: "+=200%",
+        end: "+=300%", // Increased scroll distance
         pin: true,
         scrub: true,
       });
 
-      // Automation Phase (Fade Out)
-      gsap.to(automationRef.current, {
-        opacity: 0,
-        scale: 0.9,
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=100%",
+          end: "+=300%",
           scrub: true,
         }
       });
 
-      // Augmentation Phase (Fade In)
-      gsap.fromTo(augmentationRef.current, 
+      // Phase 1: Hold Automation (Readability) then Fade Out
+      tl.to(automationRef.current, { opacity: 1, duration: 1 }) // Hold
+        .to(automationRef.current, { opacity: 0, scale: 0.9, duration: 1 }, "+=1"); // Fade out
+
+      // Phase 2: Fade In Augmentation and Hold
+      tl.fromTo(augmentationRef.current, 
         { opacity: 0, scale: 1.1, y: 50 },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "center top", // Start fading in halfway through
-            end: "+=100%",
-            scrub: true,
-          }
-        }
-      );
+        { opacity: 1, scale: 1, y: 0, duration: 1 }
+      )
+      .to(augmentationRef.current, { opacity: 1, duration: 2 }); // Hold for reading
 
     }, containerRef);
 

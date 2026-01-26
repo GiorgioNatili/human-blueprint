@@ -1,9 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Section } from "@/components/ui/Section";
-import Scene from "@/components/canvas/Scene";
-// import NeuralMesh from "@/components/canvas/NeuralMesh";
 
 export default function Act2() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -35,7 +32,6 @@ export default function Act2() {
         .to(".iceberg-image", { yPercent: -30, scale: 1.2, duration: 2 }, "<")
         
       // Phase 2: Submersion (Going Deeper)
-        .to(".depth-marker", { opacity: 1, duration: 0.5 }, "-=1")
         .to(".iceberg-image", { yPercent: -60, scale: 1.5, duration: 2 })
         
       // Phase 3: The Foundation (Reveal)
@@ -43,6 +39,27 @@ export default function Act2() {
           { opacity: 0, y: 100 }, 
           { opacity: 1, y: 0, duration: 1, stagger: 0.3 }
         );
+
+      // Individual Depth Marker Animation (Genie Effect)
+      gsap.utils.toArray(".depth-marker-item").forEach((marker: any, i) => {
+        gsap.fromTo(marker, 
+          { scale: 1, opacity: 0.3, x: 0 },
+          {
+            scale: 2, // Magnify
+            opacity: 1,
+            x: -20, // Slight shift left
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: icebergRef.current,
+              start: `top+=${10 + i * 20}% top`, // Staggered start based on scroll position
+              end: `top+=${25 + i * 20}% top`,
+              scrub: 1,
+              toggleActions: "play reverse play reverse"
+            }
+          }
+        );
+      });
 
     }, containerRef);
 
@@ -74,10 +91,10 @@ export default function Act2() {
 
         {/* Depth Markers (Genie Effect) */}
         <div className="absolute right-8 md:right-12 top-0 bottom-0 flex flex-col justify-center gap-[20vh] text-right z-20 pointer-events-none">
-          <div className="depth-marker text-cyan-400 font-mono text-xl md:text-2xl font-bold opacity-50 transition-all duration-500">0m — Surface</div>
-          <div className="depth-marker text-cyan-500 font-mono text-xl md:text-2xl font-bold opacity-50 transition-all duration-500">-100m — Twilight Zone</div>
-          <div className="depth-marker text-blue-500 font-mono text-xl md:text-2xl font-bold opacity-50 transition-all duration-500">-1000m — Midnight Zone</div>
-          <div className="depth-marker text-indigo-500 font-mono text-xl md:text-2xl font-bold opacity-50 transition-all duration-500">-4000m — The Abyss</div>
+          <div className="depth-marker-item text-cyan-400 font-mono text-xl md:text-2xl font-bold opacity-30 transition-colors">0m — Surface</div>
+          <div className="depth-marker-item text-cyan-500 font-mono text-xl md:text-2xl font-bold opacity-30 transition-colors">-100m — Twilight Zone</div>
+          <div className="depth-marker-item text-blue-500 font-mono text-xl md:text-2xl font-bold opacity-30 transition-colors">-1000m — Midnight Zone</div>
+          <div className="depth-marker-item text-indigo-500 font-mono text-xl md:text-2xl font-bold opacity-30 transition-colors">-4000m — The Abyss</div>
         </div>
 
         {/* Foundation Content (Revealed at bottom) */}
