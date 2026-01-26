@@ -124,8 +124,17 @@ export default function Home() {
       <Act3 />
       <DeepPillars />
       <Act4 />
-      <ParadoxExplorer /> {/* New Module */}
-      <Scenarios />
+      
+      {/* Added spacing wrapper to prevent collision */}
+      <div className="relative z-20">
+        <ParadoxExplorer /> 
+      </div>
+      
+      {/* Added spacing wrapper to prevent collision */}
+      <div className="relative z-20 mt-32">
+        <Scenarios />
+      </div>
+
       <Act5 />
       <ResearchDeepDive />
       <NeuralQA />
