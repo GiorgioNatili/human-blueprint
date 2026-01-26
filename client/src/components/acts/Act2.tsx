@@ -43,31 +43,7 @@ export default function Act2() {
           { opacity: 1, y: 0, duration: 1, stagger: 0.3 }
         );
 
-      // Individual Depth Marker Animation (Genie Effect + Color Transition)
-      const colors = ["#22d3ee", "#3b82f6", "#6366f1", "#818cf8"]; // Cyan -> Blue -> Indigo -> Light Indigo
-
-      gsap.utils.toArray(".depth-marker-item").forEach((marker: any, i) => {
-        gsap.fromTo(marker, 
-          { scale: 1, opacity: 0.4, x: 0, color: "#ffffff" }, // Start White, lower opacity
-          {
-            scale: 1.6, // Reduced from 2.5 to 1.6 (User feedback: "too big")
-            opacity: 1,
-            x: -20, // Reduced shift
-            color: colors[i], // Transition to specific depth color
-            duration: 1,
-            ease: "power1.inOut", // Smoother easing for color/scale
-            scrollTrigger: {
-              trigger: icebergRef.current,
-              // Start MUCH earlier. 
-              // i=0 starts at 0% (top), i=1 at 15%, etc.
-              start: `top+=${i * 15}% top`, 
-              end: `top+=${15 + i * 15}% top`,
-              scrub: 1,
-              toggleActions: "play reverse play reverse"
-            }
-          }
-        );
-      });
+      // ANIMATIONS REMOVED: Depth markers are now static white text.
 
     }, containerRef);
 
@@ -100,13 +76,12 @@ export default function Act2() {
           </p>
         </div>
 
-        {/* Depth Markers (Genie Effect) */}
+        {/* Depth Markers (Static White Text) */}
         <div className="absolute right-8 md:right-16 top-0 bottom-0 flex flex-col justify-center gap-[20vh] text-right z-20 pointer-events-none">
-          {/* Removed transition-colors class to avoid conflict with GSAP */}
-          <div className="depth-marker-item font-mono text-xl md:text-3xl font-bold drop-shadow-glow">0m — Surface</div>
-          <div className="depth-marker-item font-mono text-xl md:text-3xl font-bold drop-shadow-glow">-100m — Twilight Zone</div>
-          <div className="depth-marker-item font-mono text-xl md:text-3xl font-bold drop-shadow-glow">-1000m — Midnight Zone</div>
-          <div className="depth-marker-item font-mono text-xl md:text-3xl font-bold drop-shadow-glow">-4000m — The Abyss</div>
+          <div className="depth-marker-item font-mono text-xl md:text-3xl font-bold text-white drop-shadow-glow opacity-80">0m — Surface</div>
+          <div className="depth-marker-item font-mono text-xl md:text-3xl font-bold text-white drop-shadow-glow opacity-80">-100m — Twilight Zone</div>
+          <div className="depth-marker-item font-mono text-xl md:text-3xl font-bold text-white drop-shadow-glow opacity-80">-1000m — Midnight Zone</div>
+          <div className="depth-marker-item font-mono text-xl md:text-3xl font-bold text-white drop-shadow-glow opacity-80">-4000m — The Abyss</div>
         </div>
 
         {/* Foundation Content (Revealed at bottom) */}
