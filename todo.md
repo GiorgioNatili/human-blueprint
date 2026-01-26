@@ -1,31 +1,26 @@
-# Expansion Plan: The Human Blueprint (3D & Deep Content)
+# Expansion Plan: The Human Blueprint
 
-## Phase 1: 3D Architecture
-- [ ] Install `three`, `@types/three`, `@react-three/fiber`, `@react-three/drei`
-- [ ] Create `components/canvas/Scene.tsx` as the persistent 3D background
-- [ ] Create `components/canvas/ScrollManager.tsx` to sync DOM scroll with 3D camera
+## Phase 1: Holistic Scroll Refactoring
+- [x] **Cognitive Impact**: Convert to pinned scroll section
+- [x] **Deep Pillars**: Implement split-screen scroll
+- [x] **Paradoxes**: Create cinematic scroll sequence
 
-## Phase 2: Content Expansion (Part 1)
-- [ ] **Act 0: The History of Tools**: New prologue section.
-    - [ ] "The Hand" -> "The Hammer" -> "The Algorithm" -> "The Agent"
-- [ ] **Deep Pillars**: Expand Act 3 into detailed sub-sections.
-    - [ ] Intellectual: "The Chess Move" interactive example
-    - [ ] Social: "The Empathy Bridge" visualization
-    - [ ] Ethical: "The Trolley Problem" 2.0
-    - [ ] Operational: "The Conductor" metaphor
+## Phase 2: Visual Immersion & Layout
+- [x] **Act II (Iceberg)**: Fix cropping and add Genie effect
+- [x] **Loyalty by Design**: Fix layout overlaps
 
-## Phase 3: Content Expansion (Part 2)
-- [ ] **Interactive Scenarios**: 3D cards for the 5 scenarios.
-- [ ] **Neural Q&A**: Interactive grid interface for the Q&A section.
+## Phase 3: Content & Context
+- [x] **Neural Query**: Relocate to end
+- [x] **Research Foundation**: Expand content and add citations
 
-## Phase 4: 3D Scenes & Transitions
-- [ ] **Particle World**: Global background that morphs based on scroll position.
-    - [ ] State 1: Chaos (Fear)
-    - [ ] State 2: Grid (Structure)
-    - [ ] State 3: Flow (Collaboration)
-- [ ] **3D Iceberg**: Replace 2D image with rotating wireframe model.
-- [ ] **Camera Transitions**: Smooth fly-throughs between Acts.
+## Phase 4: Cleanup
+- [x] **Copyright**: Remove copyright line
+- [x] **Branding**: Remove "Made with Manus"
 
-## Phase 5: Polish
-- [ ] Performance tuning (dpr, instance mesh).
-- [ ] Mobile fallback for heavy 3D.
+## Phase 5: Defect Fixes
+- [x] **Paradox Overlap**: Fix ghosting effect
+- [x] **Section Collision**: Fix overlap between Paradoxes and Scenarios
+
+## Phase 6: Final Polish (Current)
+- [ ] **Act II Immersion**: Make iceberg full-screen with deep parallax background.
+- [ ] **Badge Removal**: Find and remove the persistent "Made with Manus" badge.
