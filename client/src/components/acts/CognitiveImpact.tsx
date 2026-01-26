@@ -1,140 +1,133 @@
-import { useState } from "react";
-import { Section } from "@/components/ui/Section";
-import { motion } from "framer-motion";
-import { Brain, Cpu, Activity, Zap } from "lucide-react";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Brain, Cpu, Activity, Zap, ArrowDown } from "lucide-react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function CognitiveImpact() {
-  const [activeMode, setActiveMode] = useState<"automation" | "augmentation">("automation");
+  const containerRef = useRef<HTMLDivElement>(null);
+  const automationRef = useRef<HTMLDivElement>(null);
+  const augmentationRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Pin the container
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top top",
+        end: "+=200%",
+        pin: true,
+        scrub: true,
+      });
+
+      // Automation Phase (Fade Out)
+      gsap.to(automationRef.current, {
+        opacity: 0,
+        scale: 0.9,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "+=100%",
+          scrub: true,
+        }
+      });
+
+      // Augmentation Phase (Fade In)
+      gsap.fromTo(augmentationRef.current, 
+        { opacity: 0, scale: 1.1, y: 50 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "center top", // Start fading in halfway through
+            end: "+=100%",
+            scrub: true,
+          }
+        }
+      );
+
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div className="relative z-10 bg-background py-32 border-t border-white/5">
-      <Section>
-        <div className="container px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
-              Cognitive Impact Analysis
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Research shows two distinct pathways for AI integration. One leads to atrophy, the other to mastery.
-            </p>
-          </div>
+    <div ref={containerRef} className="relative h-screen bg-black overflow-hidden flex items-center justify-center">
+      {/* Immersive Background */}
+      <div className="absolute inset-0 bg-[url('/images/texture-noise.jpg')] opacity-10 mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10" />
 
-          <div className="flex justify-center mb-12">
-            <div className="bg-white/5 p-1 rounded-full flex gap-2 border border-white/10">
-              <button
-                onClick={() => setActiveMode("automation")}
-                className={`px-6 py-2 rounded-full font-bold transition-all ${
-                  activeMode === "automation" 
-                    ? "bg-destructive text-white shadow-lg" 
-                    : "text-muted-foreground hover:text-white"
-                }`}
-              >
-                Pathway A: Automation
-              </button>
-              <button
-                onClick={() => setActiveMode("augmentation")}
-                className={`px-6 py-2 rounded-full font-bold transition-all ${
-                  activeMode === "augmentation" 
-                    ? "bg-emerald-600 text-white shadow-lg" 
-                    : "text-muted-foreground hover:text-white"
-                }`}
-              >
-                Pathway B: Augmentation
-              </button>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Visualization */}
-            <div className="relative h-[400px] bg-black/40 rounded-2xl border border-white/10 overflow-hidden flex items-center justify-center">
-              <div className="absolute inset-0 bg-grid-white/[0.02]" />
-              
-              {activeMode === "automation" ? (
-                <motion.div 
-                  initial={{ opacity: 0 }} 
-                  animate={{ opacity: 1 }} 
-                  className="text-center"
-                >
-                  <div className="relative w-48 h-48 mx-auto mb-8">
-                    <motion.div 
-                      animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }} 
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="absolute inset-0 bg-destructive/20 rounded-full blur-xl"
-                    />
-                    <Cpu className="w-full h-full text-destructive p-8" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-destructive mb-2">Cognitive Offloading</h3>
-                  <p className="text-muted-foreground">Neural pathways weaken due to disuse.</p>
-                </motion.div>
-              ) : (
-                <motion.div 
-                  initial={{ opacity: 0 }} 
-                  animate={{ opacity: 1 }} 
-                  className="text-center"
-                >
-                  <div className="relative w-48 h-48 mx-auto mb-8">
-                    <motion.div 
-                      animate={{ rotate: 360 }} 
-                      transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                      className="absolute inset-0 border-2 border-dashed border-emerald-500/30 rounded-full"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center gap-4">
-                      <Brain className="w-16 h-16 text-emerald-400" />
-                      <Zap className="w-8 h-8 text-yellow-400 animate-pulse" />
-                      <Cpu className="w-16 h-16 text-cyan-400" />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-bold text-emerald-400 mb-2">Cognitive Extension</h3>
-                  <p className="text-muted-foreground">Neural pathways strengthen through challenge.</p>
-                </motion.div>
-              )}
-            </div>
-
-            {/* Data Points */}
-            <div className="space-y-6">
-              {activeMode === "automation" ? (
-                <motion.div initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
-                  <div className="bg-destructive/10 border border-destructive/20 p-6 rounded-xl mb-4">
-                    <h4 className="font-bold text-destructive mb-2 flex items-center gap-2">
-                      <Activity className="w-5 h-5" /> The "Google Effect"
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      Research indicates that when information is easily accessible via external tools, the brain reduces resource allocation for memory retention.
-                    </p>
-                  </div>
-                  <div className="bg-destructive/10 border border-destructive/20 p-6 rounded-xl">
-                    <h4 className="font-bold text-destructive mb-2 flex items-center gap-2">
-                      <Activity className="w-5 h-5" /> Skill Atrophy
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      "Use it or lose it" applies to cognitive functions. Over-reliance on AI for decision-making degrades critical thinking skills over time.
-                    </p>
-                  </div>
-                </motion.div>
-              ) : (
-                <motion.div initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
-                  <div className="bg-emerald-950/30 border border-emerald-500/20 p-6 rounded-xl mb-4">
-                    <h4 className="font-bold text-emerald-400 mb-2 flex items-center gap-2">
-                      <Activity className="w-5 h-5" /> Adversarial Growth
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      When AI is used to *challenge* rather than *replace* human thought, it triggers deeper cognitive processing and "desirable difficulty."
-                    </p>
-                  </div>
-                  <div className="bg-emerald-950/30 border border-emerald-500/20 p-6 rounded-xl">
-                    <h4 className="font-bold text-emerald-400 mb-2 flex items-center gap-2">
-                      <Activity className="w-5 h-5" /> Extended Mind Thesis
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      Properly integrated tools become part of the cognitive system, expanding the "search space" of possible solutions without replacing the solver.
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-            </div>
-          </div>
+      <div className="container px-4 relative z-20 h-full flex flex-col justify-center">
+        <div className="text-center mb-12">
+          <h2 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-white">
+            Cognitive Impact Analysis
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Two distinct pathways for AI integration. Scroll to explore the divergence.
+          </p>
+          <ArrowDown className="w-6 h-6 text-muted-foreground mx-auto mt-8 animate-bounce" />
         </div>
-      </Section>
+
+        <div className="relative w-full max-w-5xl mx-auto h-[50vh]">
+          
+          {/* Pathway A: Automation (Absolute Positioned) */}
+          <div ref={automationRef} className="absolute inset-0 flex flex-col md:flex-row items-center gap-12 bg-destructive/5 border border-destructive/20 rounded-3xl p-8 md:p-12 backdrop-blur-sm">
+            <div className="flex-1 text-center md:text-left">
+              <div className="inline-flex items-center gap-3 mb-6 bg-destructive/20 px-4 py-2 rounded-full border border-destructive/30">
+                <Cpu className="w-6 h-6 text-destructive" />
+                <span className="text-destructive font-bold uppercase tracking-wider">Pathway A: Automation</span>
+              </div>
+              <h3 className="text-4xl font-bold text-white mb-4">Cognitive Offloading</h3>
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                When we outsource critical thinking to AI, neural pathways weaken due to disuse. The "Google Effect" becomes the "Agentic Atrophy."
+              </p>
+              <div className="bg-black/40 p-6 rounded-xl border-l-4 border-destructive">
+                <p className="text-destructive-foreground italic">
+                  "Use it or lose it" applies to cognitive functions. Over-reliance degrades judgment over time.
+                </p>
+              </div>
+            </div>
+            <div className="flex-1 flex justify-center">
+              <div className="relative w-64 h-64">
+                <div className="absolute inset-0 bg-destructive/20 rounded-full blur-3xl animate-pulse" />
+                <Cpu className="w-full h-full text-destructive/80 relative z-10" />
+              </div>
+            </div>
+          </div>
+
+          {/* Pathway B: Augmentation (Absolute Positioned) */}
+          <div ref={augmentationRef} className="absolute inset-0 flex flex-col md:flex-row items-center gap-12 bg-emerald-900/10 border border-emerald-500/20 rounded-3xl p-8 md:p-12 backdrop-blur-md opacity-0">
+            <div className="flex-1 text-center md:text-left">
+              <div className="inline-flex items-center gap-3 mb-6 bg-emerald-500/20 px-4 py-2 rounded-full border border-emerald-500/30">
+                <Brain className="w-6 h-6 text-emerald-400" />
+                <span className="text-emerald-400 font-bold uppercase tracking-wider">Pathway B: Augmentation</span>
+              </div>
+              <h3 className="text-4xl font-bold text-white mb-4">Cognitive Extension</h3>
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                When AI is used to *challenge* rather than replace human thought, it triggers deeper processing and "desirable difficulty."
+              </p>
+              <div className="bg-black/40 p-6 rounded-xl border-l-4 border-emerald-500">
+                <p className="text-emerald-100 italic">
+                  Properly integrated tools expand the "search space" of solutions without replacing the solver.
+                </p>
+              </div>
+            </div>
+            <div className="flex-1 flex justify-center">
+              <div className="relative w-64 h-64">
+                <div className="absolute inset-0 border-2 border-dashed border-emerald-500/30 rounded-full animate-[spin_10s_linear_infinite]" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Brain className="w-32 h-32 text-emerald-400" />
+                  <Zap className="absolute top-0 right-0 w-12 h-12 text-yellow-400 animate-pulse" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   );
 }

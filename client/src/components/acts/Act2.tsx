@@ -55,12 +55,12 @@ export default function Act2() {
         {/* Background Gradient that gets darker */}
         <div className="absolute inset-0 bg-gradient-to-b from-background via-blue-950/50 to-black z-0" />
         
-        {/* The Iceberg Image (Widened & Immersive) */}
-        <div className="iceberg-image absolute w-[120vw] h-[120vh] z-10 mix-blend-screen opacity-80 pointer-events-none">
+        {/* The Iceberg Image (Full Immersion) */}
+        <div className="iceberg-image absolute w-full h-full z-10 mix-blend-screen opacity-90 pointer-events-none flex items-center justify-center">
            <img
             src="/images/iceberg-abstract.png"
             alt="Abstract Iceberg"
-            className="w-full h-full object-cover"
+            className="w-auto h-[120%] max-w-none object-cover"
           />
         </div>
 
@@ -72,24 +72,12 @@ export default function Act2() {
           </p>
         </div>
 
-        {/* Depth Markers */}
-        <div className="depth-marker absolute right-10 top-1/2 -translate-y-1/2 flex flex-col gap-20 opacity-0 z-20">
-          <div className="text-right">
-            <span className="block text-sm text-cyan-400 font-mono">0m</span>
-            <span className="block text-xs text-muted-foreground">Surface Tools</span>
-          </div>
-          <div className="text-right">
-            <span className="block text-sm text-cyan-400 font-mono">-100m</span>
-            <span className="block text-xs text-muted-foreground">Prompt Engineering</span>
-          </div>
-          <div className="text-right">
-            <span className="block text-sm text-cyan-400 font-mono">-500m</span>
-            <span className="block text-xs text-muted-foreground">Domain Expertise</span>
-          </div>
-          <div className="text-right">
-            <span className="block text-sm text-cyan-400 font-mono">-1000m</span>
-            <span className="block text-xs text-muted-foreground">Ethical Frameworks</span>
-          </div>
+        {/* Depth Markers (Genie Effect) */}
+        <div className="absolute right-8 md:right-12 top-0 bottom-0 flex flex-col justify-center gap-[20vh] text-right z-20 pointer-events-none">
+          <div className="depth-marker text-cyan-400 font-mono text-xl md:text-2xl font-bold opacity-50 transition-all duration-500">0m — Surface</div>
+          <div className="depth-marker text-cyan-500 font-mono text-xl md:text-2xl font-bold opacity-50 transition-all duration-500">-100m — Twilight Zone</div>
+          <div className="depth-marker text-blue-500 font-mono text-xl md:text-2xl font-bold opacity-50 transition-all duration-500">-1000m — Midnight Zone</div>
+          <div className="depth-marker text-indigo-500 font-mono text-xl md:text-2xl font-bold opacity-50 transition-all duration-500">-4000m — The Abyss</div>
         </div>
 
         {/* Foundation Content (Revealed at bottom) */}

@@ -69,15 +69,15 @@ export default function Act4() {
           <p className="text-2xl text-cyan-300">Not a feature. A foundation.</p>
         </div>
 
-        <div className="relative z-10 w-full max-w-4xl flex flex-col-reverse items-center gap-[-20px]">
+        <div className="relative z-10 w-full max-w-4xl flex flex-col-reverse items-center">
           {layers.map((layer, i) => (
             <div 
               key={i} 
-              className={`layer-${i + 1} w-[${100 - i * 10}%] h-24 ${layer.color} rounded-xl border border-white/20 flex items-center justify-between px-12 shadow-2xl mb-[-10px] z-[${10-i}]`}
-              style={{ width: `${100 - i * 5}%` }}
+              className={`layer-${i + 1} h-20 md:h-24 ${layer.color} rounded-xl border border-white/20 flex flex-col md:flex-row items-center justify-center md:justify-between px-6 md:px-12 shadow-2xl -mb-4 relative`}
+              style={{ width: `${100 - i * 5}%`, zIndex: 10 - i }}
             >
-              <span className="font-heading text-2xl font-bold text-white">{layer.title}</span>
-              <span className="text-white/80">{layer.desc}</span>
+              <span className="font-heading text-lg md:text-2xl font-bold text-white text-center md:text-left">{layer.title}</span>
+              <span className="text-white/80 text-xs md:text-base text-center md:text-right">{layer.desc}</span>
             </div>
           ))}
         </div>
