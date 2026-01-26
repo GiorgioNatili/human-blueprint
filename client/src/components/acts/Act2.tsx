@@ -59,12 +59,13 @@ export default function Act2() {
         {/* Animated Water Texture Layer for Parallax */}
         <div className="water-texture absolute inset-0 bg-[url('/images/texture-noise.jpg')] opacity-20 mix-blend-overlay z-0 scale-150 origin-top" />
 
-        {/* The Iceberg Image (Full Immersion - Scaled Up) */}
+        {/* The Iceberg Image (Full Immersion - Fixed Clipping) */}
         <div className="iceberg-image absolute w-full h-full z-10 mix-blend-screen opacity-90 pointer-events-none flex items-center justify-center">
            <img
             src="/images/iceberg-abstract.png"
             alt="Abstract Iceberg"
-            className="w-full h-full object-cover scale-110" 
+            // Changed from object-cover scale-110 to object-contain and max-height to ensure full visibility
+            className="w-full h-[85vh] object-contain" 
           />
         </div>
 
