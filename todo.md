@@ -22,5 +22,6 @@
 - [x] **Section Collision**: Fix overlap between Paradoxes and Scenarios
 
 ## Phase 6: Final Polish (Current)
-- [ ] **Act II Immersion**: Make iceberg full-screen with deep parallax background.
-- [ ] **Badge Removal**: Find and remove the persistent "Made with Manus" badge.
+- [x] **Act II Immersion**: Make iceberg full-screen with deep parallax background.
+- [x] **Badge Removal**: Find and remove the persistent "Made with Manus" badge.
+- [ ] **Act II Depth Markers**: Sync magnification with scroll and add white-to-color transition.
