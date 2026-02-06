@@ -53,6 +53,8 @@ export default function NeuralQA() {
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  aria-expanded={openIndex === index}
+                  aria-controls={`qa-panel-${index}`}
                   className="w-full flex items-center justify-between p-6 text-left"
                 >
                   <span className="font-heading text-lg md:text-xl font-bold text-white pr-8">
@@ -68,6 +70,8 @@ export default function NeuralQA() {
                 <AnimatePresence>
                   {openIndex === index && (
                     <motion.div
+                      id={`qa-panel-${index}`}
+                      role="region"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

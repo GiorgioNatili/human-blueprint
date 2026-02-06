@@ -35,12 +35,13 @@ export default function Home() {
       touchMultiplier: 2,
     });
 
+    let rafId: number;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     const ctx = gsap.context(() => {
       // Hero Parallax
@@ -56,7 +57,7 @@ export default function Home() {
       });
 
       // Initial Text Reveal
-      gsap.utils.toArray(".reveal-text").forEach((element: any) => {
+      gsap.utils.toArray<Element>(".reveal-text").forEach((element) => {
         gsap.fromTo(
           element,
           { y: 50, opacity: 0 },
@@ -76,15 +77,16 @@ export default function Home() {
     }, containerRef);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
       ctx.revert();
     };
   }, []);
 
   return (
-    <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-sans selection:bg-cyan-500/30">
+    <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-sans selection:bg-cyan-500/30" role="main">
       {/* Persistent 3D Background */}
-      <Scene>
+      <Scene aria-hidden="true">
         <ParticleWorld />
       </Scene>
 
@@ -111,7 +113,7 @@ export default function Home() {
             By <a href="https://www.linkedin.com/in/giorgionatili/" target="_blank" rel="noopener noreferrer" className="underline hover:text-cyan-300 transition-colors">Giorgio Natili</a>
           </p>
           <div className="reveal-text delay-400">
-            <ArrowDown className="w-8 h-8 mx-auto animate-bounce text-primary" />
+            <ArrowDown className="w-8 h-8 mx-auto animate-bounce text-primary" aria-hidden="true" />
           </div>
         </div>
       </section>

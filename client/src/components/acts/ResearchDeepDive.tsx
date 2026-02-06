@@ -84,6 +84,8 @@ export default function ResearchDeepDive() {
               >
                 <button
                   onClick={() => setOpenSection(openSection === section.id ? null : section.id)}
+                  aria-expanded={openSection === section.id}
+                  aria-controls={`research-panel-${section.id}`}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
                 >
                   <span className="font-heading text-xl font-bold text-white/90">
@@ -98,6 +100,8 @@ export default function ResearchDeepDive() {
                 <AnimatePresence>
                   {openSection === section.id && (
                     <motion.div
+                      id={`research-panel-${section.id}`}
+                      role="region"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

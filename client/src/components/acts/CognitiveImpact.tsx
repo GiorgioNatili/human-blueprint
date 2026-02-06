@@ -3,8 +3,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Brain, Cpu, Zap, ArrowDown } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function CognitiveImpact() {
   const containerRef = useRef<HTMLDivElement>(null);
   const automationRef = useRef<HTMLDivElement>(null);
@@ -12,20 +10,13 @@ export default function CognitiveImpact() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Pin the container for a longer duration to ensure readability
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "top top",
-        end: "+=300%", // Increased scroll distance
-        pin: true,
-        scrub: true,
-      });
-
+      // Pin and animate the container
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
           end: "+=300%",
+          pin: true,
           scrub: true,
         }
       });
@@ -60,7 +51,7 @@ export default function CognitiveImpact() {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Two distinct pathways for AI integration. Scroll to explore the divergence.
           </p>
-          <ArrowDown className="w-6 h-6 text-muted-foreground mx-auto mt-8 animate-bounce" />
+          <ArrowDown className="w-6 h-6 text-muted-foreground mx-auto mt-8 animate-bounce" aria-hidden="true" />
         </div>
 
         <div className="relative w-full max-w-5xl mx-auto h-[50vh]">

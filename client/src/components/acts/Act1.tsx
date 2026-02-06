@@ -9,23 +9,15 @@ export default function Act1() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Pin the split section
-      ScrollTrigger.create({
-        trigger: splitRef.current,
-        start: "top top",
-        end: "+=200%",
-        pin: true,
-        scrub: true,
-        id: "act1-pin",
-      });
-
-      // Animate the "Fear" side out and "Reality" side in
+      // Pin and animate the split section
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: splitRef.current,
           start: "top top",
           end: "+=200%",
+          pin: true,
           scrub: true,
+          id: "act1-pin",
         },
       });
 
@@ -53,8 +45,10 @@ export default function Act1() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/intuition-gap.jpg" 
-            alt="Intuition Gap" 
+            src="/images/intuition-gap.jpg"
+            alt=""
+            role="presentation"
+            loading="lazy"
             className="gap-image w-full h-full object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />

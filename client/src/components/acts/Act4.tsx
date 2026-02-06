@@ -35,11 +35,11 @@ export default function Act4() {
   }, []);
 
   const layers = [
-    { title: "Governance", desc: "Clear rules on who the agent serves", color: "bg-blue-900" },
-    { title: "Data Stewardship", desc: "Protecting user data from extraction", color: "bg-indigo-800" },
-    { title: "Secure Tooling", desc: "Preventing compromise and leakage", color: "bg-purple-800" },
-    { title: "Transparency", desc: "Visible decision-making logic", color: "bg-fuchsia-800" },
-    { title: "Accountability", desc: "User recourse mechanisms", color: "bg-pink-800" },
+    { id: "governance", title: "Governance", desc: "Clear rules on who the agent serves", color: "bg-blue-900" },
+    { id: "data-stewardship", title: "Data Stewardship", desc: "Protecting user data from extraction", color: "bg-indigo-800" },
+    { id: "secure-tooling", title: "Secure Tooling", desc: "Preventing compromise and leakage", color: "bg-purple-800" },
+    { id: "transparency", title: "Transparency", desc: "Visible decision-making logic", color: "bg-fuchsia-800" },
+    { id: "accountability", title: "Accountability", desc: "User recourse mechanisms", color: "bg-pink-800" },
   ];
 
   return (
@@ -58,8 +58,10 @@ export default function Act4() {
       <div ref={layersRef} className="h-screen w-full relative overflow-hidden flex flex-col items-center justify-end pb-20">
         <div className="absolute inset-0 z-0">
            <img 
-            src="/images/iron-triangle.jpg" 
-            alt="Iron Triangle" 
+            src="/images/iron-triangle.jpg"
+            alt=""
+            role="presentation"
+            loading="lazy"
             className="w-full h-full object-cover opacity-20"
           />
         </div>
@@ -71,8 +73,8 @@ export default function Act4() {
 
         <div className="relative z-10 w-full max-w-4xl flex flex-col-reverse items-center">
           {layers.map((layer, i) => (
-            <div 
-              key={i} 
+            <div
+              key={layer.id}
               className={`layer-${i + 1} h-20 md:h-24 ${layer.color} rounded-xl border border-white/20 flex flex-col md:flex-row items-center justify-center md:justify-between px-6 md:px-12 shadow-2xl -mb-4 relative`}
               style={{ width: `${100 - i * 5}%`, zIndex: 10 - i }}
             >

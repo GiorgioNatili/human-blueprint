@@ -3,8 +3,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Brain, Shield, Users, Scale, Lightbulb } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Scenarios() {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -61,8 +59,6 @@ export default function Scenarios() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray(".scenario-card");
-      const totalWidth = cards.length * 100; // approximate percentage width
-      
       // Horizontal scroll animation for cards
       gsap.to(cards, {
         xPercent: -100 * (cards.length - 1),
@@ -98,8 +94,10 @@ export default function Scenarios() {
       {/* Immersive Parallax Background */}
       <div ref={bgRef} className="absolute inset-0 w-[150vw] h-full opacity-30 pointer-events-none">
          <img 
-            src="/images/agentic-network.jpg" 
-            alt="Neural Network Background" 
+            src="/images/agentic-network.jpg"
+            alt=""
+            role="presentation"
+            loading="lazy"
             className="w-full h-full object-cover mix-blend-screen"
          />
          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black" />
@@ -114,7 +112,7 @@ export default function Scenarios() {
         </p>
       </div>
 
-      <div ref={cardsRef} className="flex w-[500vw] h-[70vh] items-center px-4 md:px-20 gap-12">
+      <div ref={cardsRef} style={{ width: `${scenarios.length * 100}vw` }} className="flex h-[70vh] items-center px-4 md:px-20 gap-12">
         {scenarios.map((scenario, index) => (
           <div 
             key={scenario.id} 
