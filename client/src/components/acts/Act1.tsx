@@ -45,7 +45,7 @@ export default function Act1() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/intuition-gap.jpg"
+            src={`${import.meta.env.BASE_URL}images/intuition-gap.jpg`}
             alt=""
             role="presentation"
             loading="lazy"

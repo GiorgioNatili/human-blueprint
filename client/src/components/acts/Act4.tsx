@@ -58,7 +58,7 @@ export default function Act4() {
       <div ref={layersRef} className="h-screen w-full relative overflow-hidden flex flex-col items-center justify-end pb-20">
         <div className="absolute inset-0 z-0">
            <img 
-            src="/images/iron-triangle.jpg"
+            src={`${import.meta.env.BASE_URL}images/iron-triangle.jpg`}
             alt=""
             role="presentation"
             loading="lazy"

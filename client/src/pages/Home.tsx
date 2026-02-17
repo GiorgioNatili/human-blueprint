@@ -95,7 +95,7 @@ export default function Home() {
         <div className="hero-bg absolute inset-0 z-0">
           {/* Fallback image for mobile or low-power mode */}
           <img
-            src="/images/hero-bg.jpg"
+            src={`${import.meta.env.BASE_URL}images/hero-bg.jpg`}
             alt="Digital Landscape"
             className="w-full h-full object-cover opacity-40 mix-blend-overlay"
           />
@@ -147,7 +147,7 @@ export default function Home() {
           <p className="font-heading text-2xl font-bold mb-4 text-primary">The Human Blueprint</p>
           <div className="mb-8">
             <a 
-              href="/Research_Foundation_The_Human_Blueprint.pdf" 
+              href={`${import.meta.env.BASE_URL}Research_Foundation_The_Human_Blueprint.pdf`}
               download
               className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/50 rounded-full transition-all font-bold text-lg hover:scale-105"
             >

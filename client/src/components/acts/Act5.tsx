@@ -47,7 +47,7 @@ export default function Act5() {
       <Section className="future-section min-h-screen flex flex-col justify-center items-center text-center relative overflow-hidden">
         <div className="future-bg absolute inset-0 z-0">
           <img
-            src="/images/future-work.jpg"
+            src={`${import.meta.env.BASE_URL}images/future-work.jpg`}
             alt="Future of Work"
             loading="lazy"
             className="w-full h-full object-cover opacity-40"
@@ -100,7 +100,7 @@ export default function Act5() {
               A vision for a future where technology amplifies the best of humanity rather than diminishing it.
             </p>
             <a
-              href="/Research_Foundation_The_Human_Blueprint.pdf"
+              href={`${import.meta.env.BASE_URL}Research_Foundation_The_Human_Blueprint.pdf`}
               download
               className="inline-block mt-8 px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-lg shadow-primary/25"
             >
