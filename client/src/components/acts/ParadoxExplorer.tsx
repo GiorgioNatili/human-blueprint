@@ -3,8 +3,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Scale, Lock, Eye, Users } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function ParadoxExplorer() {
   const containerRef = useRef<HTMLDivElement>(null);
   const panelsRef = useRef<HTMLDivElement[]>([]);
@@ -90,8 +88,8 @@ export default function ParadoxExplorer() {
       </div>
 
       {paradoxes.map((p, i) => (
-        <div 
-          key={i}
+        <div
+          key={p.title}
           ref={(el) => { if (el) panelsRef.current[i] = el; }}
           className={`h-screen w-full flex items-center justify-center relative overflow-hidden ${p.bg}`}
           style={{ zIndex: i }} // Initial z-index

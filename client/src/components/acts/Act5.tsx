@@ -9,7 +9,7 @@ export default function Act5() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Reveal text paragraphs one by one
-      gsap.utils.toArray(".future-text").forEach((element: any) => {
+      gsap.utils.toArray<Element>(".future-text").forEach((element) => {
         gsap.fromTo(
           element,
           { opacity: 0, y: 50 },
@@ -46,9 +46,10 @@ export default function Act5() {
     <div ref={containerRef} className="relative z-10 bg-background">
       <Section className="future-section min-h-screen flex flex-col justify-center items-center text-center relative overflow-hidden">
         <div className="future-bg absolute inset-0 z-0">
-          <img 
-            src="/images/future-work.jpg" 
-            alt="Future of Work" 
+          <img
+            src="/images/future-work.jpg"
+            alt="Future of Work"
+            loading="lazy"
             className="w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
@@ -77,18 +78,18 @@ export default function Act5() {
           <div className="mt-24 grid md:grid-cols-2 gap-8 text-left">
             <div className="future-text bg-card/50 backdrop-blur-sm p-8 rounded-xl border border-white/10">
               <h3 className="font-heading text-2xl font-bold text-primary mb-4">For Leaders</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• Audit roles for the Intuition Gap</li>
-                <li>• Invest in "soft skills" as core competencies</li>
-                <li>• Redesign workflows for collaboration</li>
+              <ul className="space-y-2 text-muted-foreground list-disc list-inside">
+                <li>Audit roles for the Intuition Gap</li>
+                <li>Invest in "soft skills" as core competencies</li>
+                <li>Redesign workflows for collaboration</li>
               </ul>
             </div>
             <div className="future-text bg-card/50 backdrop-blur-sm p-8 rounded-xl border border-white/10">
               <h3 className="font-heading text-2xl font-bold text-purple-400 mb-4">For Professionals</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• Identify your unique human value</li>
-                <li>• Develop judgment and empathy</li>
-                <li>• Demand AI systems that serve you</li>
+              <ul className="space-y-2 text-muted-foreground list-disc list-inside">
+                <li>Identify your unique human value</li>
+                <li>Develop judgment and empathy</li>
+                <li>Demand AI systems that serve you</li>
               </ul>
             </div>
           </div>
@@ -98,9 +99,13 @@ export default function Act5() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               A vision for a future where technology amplifies the best of humanity rather than diminishing it.
             </p>
-            <button className="mt-8 px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-lg shadow-primary/25">
+            <a
+              href="/Research_Foundation_The_Human_Blueprint.pdf"
+              download
+              className="inline-block mt-8 px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-lg shadow-primary/25"
+            >
               Download the Full Report
-            </button>
+            </a>
           </div>
         </div>
       </Section>

@@ -4,11 +4,12 @@ import { Suspense } from "react";
 
 interface SceneProps {
   children: React.ReactNode;
+  "aria-hidden"?: boolean | "true" | "false";
 }
 
-export default function Scene({ children }: SceneProps) {
+export default function Scene({ children, "aria-hidden": ariaHidden }: SceneProps) {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none">
+    <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden={ariaHidden}>
       <Canvas
         camera={{ position: [0, 0, 5], fov: 75 }}
         gl={{ antialias: true, alpha: true }}

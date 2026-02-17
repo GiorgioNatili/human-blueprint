@@ -8,22 +8,15 @@ export default function Act2() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Pin the iceberg section for a long scroll
-      ScrollTrigger.create({
-        trigger: icebergRef.current,
-        start: "top top",
-        end: "+=300%",
-        pin: true,
-        scrub: 1,
-        id: "act2-pin",
-      });
-
+      // Pin and animate the iceberg section
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: icebergRef.current,
           start: "top top",
           end: "+=300%",
+          pin: true,
           scrub: 1,
+          id: "act2-pin",
         },
       });
 
@@ -64,7 +57,7 @@ export default function Act2() {
            <img
             src="/images/iceberg-abstract.png"
             alt="Abstract Iceberg"
-            // Changed from object-cover scale-110 to object-contain and max-height to ensure full visibility
+            loading="lazy"
             className="w-full h-[85vh] object-contain" 
           />
         </div>
@@ -91,8 +84,8 @@ export default function Act2() {
             { title: "Digital Dignity", desc: "The ethical bedrock. Respecting human agency in every automated decision." },
             { title: "Adversarial Collaboration", desc: "The methodology. Using AI to challenge, not just confirm, our thinking." },
             { title: "System Loyalty", desc: "The technical guarantee. Ensuring the agent serves the user, not the platform." },
-          ].map((item, i) => (
-            <div key={i} className="foundation-text bg-black/70 backdrop-blur-xl border border-cyan-500/30 p-10 rounded-2xl shadow-2xl">
+          ].map((item) => (
+            <div key={item.title} className="foundation-text bg-black/70 backdrop-blur-xl border border-cyan-500/30 p-10 rounded-2xl shadow-2xl">
               <h3 className="font-heading text-3xl font-bold mb-4 text-cyan-300">{item.title}</h3>
               <p className="text-lg text-gray-300 leading-relaxed">{item.desc}</p>
             </div>

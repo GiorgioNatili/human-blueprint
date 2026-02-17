@@ -3,8 +3,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Brain, Handshake, Shield, Zap } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function DeepPillars() {
   const containerRef = useRef<HTMLDivElement>(null);
   const leftColRef = useRef<HTMLDivElement>(null);
@@ -98,7 +96,7 @@ export default function DeepPillars() {
       <div ref={leftColRef} className="hidden lg:flex w-1/2 h-screen flex-col justify-center items-center border-r border-white/10 bg-black/50 backdrop-blur-sm z-10">
         <div className="space-y-12">
           {pillars.map((pillar, index) => (
-            <div key={index} className="flex items-center gap-6 group">
+            <div key={pillar.id} className="flex items-center gap-6 group">
               <div id={`pillar-icon-${index}`} className={`transition-all duration-300 opacity-50 ${pillar.color}`}>
                 {pillar.icon}
               </div>
@@ -113,8 +111,8 @@ export default function DeepPillars() {
       {/* Right Column: Scrolling Content */}
       <div ref={rightColRef} className="w-full lg:w-1/2 relative z-20">
         {pillars.map((pillar, index) => (
-          <div 
-            key={index} 
+          <div
+            key={pillar.id}
             id={`pillar-content-${index}`}
             className="h-screen flex flex-col justify-center px-8 md:px-20 border-b border-white/5"
           >

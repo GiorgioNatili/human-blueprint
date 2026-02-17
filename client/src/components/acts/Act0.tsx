@@ -41,30 +41,10 @@ export default function Act0() {
   }, []);
 
   const steps = [
-    { 
-      id: "step-1", 
-      icon: <Hand className="w-32 h-32 text-amber-200" />, 
-      title: "The Hand", 
-      desc: "Direct manipulation. The era of craft." 
-    },
-    { 
-      id: "step-2", 
-      icon: <Hammer className="w-32 h-32 text-slate-300" />, 
-      title: "The Hammer", 
-      desc: "Leverage. The era of industry." 
-    },
-    { 
-      id: "step-3", 
-      icon: <Cpu className="w-32 h-32 text-cyan-400" />, 
-      title: "The Algorithm", 
-      desc: "Automation. The era of information." 
-    },
-    { 
-      id: "step-4", 
-      icon: <Bot className="w-32 h-32 text-purple-400" />, 
-      title: "The Agent", 
-      desc: "Autonomy. The era of collaboration." 
-    },
+    { id: "step-1", Icon: Hand, color: "text-amber-200", title: "The Hand", desc: "Direct manipulation. The era of craft." },
+    { id: "step-2", Icon: Hammer, color: "text-slate-300", title: "The Hammer", desc: "Leverage. The era of industry." },
+    { id: "step-3", Icon: Cpu, color: "text-cyan-400", title: "The Algorithm", desc: "Automation. The era of information." },
+    { id: "step-4", Icon: Bot, color: "text-purple-400", title: "The Agent", desc: "Autonomy. The era of collaboration." },
   ];
 
   return (
@@ -76,13 +56,13 @@ export default function Act0() {
       </Section>
 
       <div ref={timelineRef} className="h-screen w-full relative flex items-center justify-center overflow-hidden">
-        {steps.map((step, i) => (
-          <div 
-            key={i} 
+        {steps.map((step) => (
+          <div
+            key={step.id}
             className={`${step.id} absolute flex flex-col items-center justify-center text-center opacity-0`}
           >
             <div className="mb-8 p-8 bg-white/5 rounded-full border border-white/10 shadow-[0_0_50px_rgba(255,255,255,0.1)]">
-              {step.icon}
+              <step.Icon className={`w-32 h-32 ${step.color}`} aria-hidden="true" />
             </div>
             <h3 className="font-heading text-6xl font-bold mb-4 text-white">{step.title}</h3>
             <p className="text-2xl text-muted-foreground">{step.desc}</p>
