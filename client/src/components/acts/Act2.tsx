@@ -50,12 +50,12 @@ export default function Act2() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a192f] via-[#020c1b] to-black z-0" />
         
         {/* Animated Water Texture Layer for Parallax */}
-        <div className="water-texture absolute inset-0 bg-[url('/images/texture-noise.jpg')] opacity-20 mix-blend-overlay z-0 scale-150 origin-top" />
+        <div className="water-texture absolute inset-0 opacity-20 mix-blend-overlay z-0 scale-150 origin-top" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}images/texture-noise.jpg')` }} />
 
         {/* The Iceberg Image (Full Immersion - Fixed Clipping) */}
         <div className="iceberg-image absolute w-full h-full z-10 mix-blend-screen opacity-90 pointer-events-none flex items-center justify-center">
            <img
-            src="/images/iceberg-abstract.png"
+            src={`${import.meta.env.BASE_URL}images/iceberg-abstract.png`}
             alt="Abstract Iceberg"
             loading="lazy"
             className="w-full h-[85vh] object-contain" 

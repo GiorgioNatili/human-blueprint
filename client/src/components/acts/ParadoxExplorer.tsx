@@ -96,7 +96,7 @@ export default function ParadoxExplorer() {
         >
           {/* Background Elements - Ensure full opacity base */}
           <div className="absolute inset-0 bg-black -z-10" /> 
-          <div className="absolute inset-0 bg-[url('/images/texture-noise.jpg')] opacity-20 mix-blend-overlay pointer-events-none" />
+          <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}images/texture-noise.jpg')` }} />
           
           <div className="content-wrapper container px-4 max-w-4xl relative z-10 text-center">
             <div className="mb-12 flex justify-center">

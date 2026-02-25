@@ -94,7 +94,7 @@ export default function Scenarios() {
       {/* Immersive Parallax Background */}
       <div ref={bgRef} className="absolute inset-0 w-[150vw] h-full opacity-30 pointer-events-none">
          <img 
-            src="/images/agentic-network.jpg"
+            src={`${import.meta.env.BASE_URL}images/agentic-network.jpg`}
             alt=""
             role="presentation"
             loading="lazy"

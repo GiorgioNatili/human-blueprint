@@ -40,7 +40,7 @@ export default function CognitiveImpact() {
   return (
     <div ref={containerRef} className="relative h-screen bg-black overflow-hidden flex items-center justify-center">
       {/* Immersive Background */}
-      <div className="absolute inset-0 bg-[url('/images/texture-noise.jpg')] opacity-10 mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 opacity-10 mix-blend-overlay pointer-events-none" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}images/texture-noise.jpg')` }} />
       <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10" />
 
       <div className="container px-4 relative z-20 h-full flex flex-col justify-center">
