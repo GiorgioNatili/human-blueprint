@@ -45,3 +45,13 @@ To trigger a deploy without pushing:
 
 1. Go to **Actions** → **Deploy to GitHub Pages**
 2. Click **Run workflow** → **Run workflow**
+
+## 6. Local Build Test
+
+To test the GitHub Pages build locally:
+
+```bash
+pnpm run build:pages
+```
+
+Then run `pnpm preview` and visit `http://localhost:4173/human-blueprint/` to verify.

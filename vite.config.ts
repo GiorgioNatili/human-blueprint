@@ -152,7 +152,11 @@ function vitePluginManusDebugCollector(): Plugin {
 
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusDebugCollector()];
 
+// GitHub Pages project site: https://username.github.io/repo-name/
+const GITHUB_PAGES_BASE = "/human-blueprint/";
+
 export default defineConfig({
+  base: process.env.GITHUB_PAGES === "true" ? GITHUB_PAGES_BASE : "/",
   plugins,
   resolve: {
     alias: {
