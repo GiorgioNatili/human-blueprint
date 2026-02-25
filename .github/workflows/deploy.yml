@@ -34,7 +34,9 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: npx vite build --base /human-blueprint/
+      - run: npx vite build
+        env:
+          GITHUB_PAGES: "true"
 
       - name: Prepare GitHub Pages files
         run: |
