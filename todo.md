@@ -1,38 +1,37 @@
-# Project TODO
+# Expansion Plan: The Human Blueprint
 
-- [x] Update theme and color palette in index.css
-- [x] Add Google Fonts (Cormorant Garamond + Inter) to index.html
-- [x] Create Hero section with blueprint motif
-- [x] Create Act 1: The Problem Space section
-- [x] Create Act 2: The Human Blueprint section
-- [x] Create Act 3: The 4-Pillar Framework section
-- [x] Create Act 4: The Loyalty Advantage section
-- [x] Create Act 5: The Intuition Gap section
-- [x] Create Footer with references
-- [x] Add scroll animations and interactions
-- [x] Generate hero background image
-- [x] Test responsive design
+## Phase 1: Holistic Scroll Refactoring
+- [x] **Cognitive Impact**: Convert to pinned scroll section
+- [x] **Deep Pillars**: Implement split-screen scroll
+- [x] **Paradoxes**: Create cinematic scroll sequence
 
-## Rebuild with Enhanced Context & Parallax Navigation
+## Phase 2: Visual Immersion & Layout
+- [x] **Act II (Iceberg)**: Fix cropping and add Genie effect
+- [x] **Loyalty by Design**: Fix layout overlaps
 
-- [x] Read presentation_development_plan.md for deeper context
-- [x] Create fixed parallax navigation component with scroll spy
-- [x] Expand Act 1 with more context on agentic AI examples
-- [x] Expand Act 2 with mestiere historical context and examples
-- [x] Expand Act 3 with detailed framework implementation examples
-- [x] Expand Act 4 with loyalty metrics and business case studies
-- [x] Expand Act 5 with practical leadership strategies
-- [x] Add smooth scroll behavior and section transitions
-- [x] Test navigation highlighting and responsive behavior
+## Phase 3: Content & Context
+- [x] **Neural Query**: Relocate to end
+- [x] **Research Foundation**: Expand content and add citations
 
-## Theatrical Redesign
+## Phase 4: Cleanup
+- [x] **Copyright**: Remove copyright line
+- [x] **Branding**: Remove "Made with Manus"
 
-- [x] Update theme to dark theatrical aesthetic (deep blacks, dramatic lighting)
-- [x] Replace emoji icons with abstract geometric SVG icons
-- [x] Implement multi-layer parallax (background, midground, foreground)
-- [x] Create curtain transition effects between acts
-- [x] Add spotlight reveal animations
-- [x] Implement stage-like entrance animations for content
-- [x] Add dramatic lighting gradients and shadows
-- [x] Create abstract background patterns and textures
-- [x] Test all animations and transitions
+## Phase 5: Defect Fixes
+- [x] **Paradox Overlap**: Fix ghosting effect
+- [x] **Section Collision**: Fix overlap between Paradoxes and Scenarios
+
+## Phase 6: Final Polish (Current)
+- [x] **Act II Immersion**: Make iceberg full-screen with deep parallax background.
+- [x] **Badge Removal**: Find and remove the persistent "Made with Manus" badge.
+- [ ] **Act II Depth Markers**: Sync magnification with scroll and add white-to-color transition.
+
+## Phase 7: Content Additions (Manus Session)
+- [x] Fix TypeScript errors from dependency mismatch (superjson, drizzle-orm, jose, tRPC)
+- [x] Add Digital Dignity definition block to Act1.tsx with staggered GSAP reveal
+- [x] Add provocative opening question to Act1.tsx
+- [x] Create EthicsGuardrails.tsx component (Layered Loyalty Model, Fairness Problem, 3 Guardrail Types)
+- [x] Create UseCases.tsx component (5 emotional intelligence use cases)
+- [x] Integrate EthicsGuardrails and UseCases into Home.tsx
+- [x] Write comprehensive CLAUDE.md spec for Claude Code (all remaining improvements)
+- [ ] Push all changes to GitHub (human-blueprint repo)

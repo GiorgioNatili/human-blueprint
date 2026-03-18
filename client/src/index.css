@@ -4,6 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-sans: "DM Sans", sans-serif;
+  --font-heading: "Outfit", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -40,49 +42,84 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  
-  /* Theatrical colors */
-  --color-gold: oklch(0.75 0.15 85);
-  --color-spotlight: oklch(0.85 0.10 85);
 }
 
 :root {
-  /* Theatrical Dark Theme - Stage Blacks & Dramatic Gold */
-  --primary: var(--color-gold);
-  --primary-foreground: oklch(0.10 0.02 250);
-  --sidebar-primary: var(--color-gold);
-  --sidebar-primary-foreground: oklch(0.10 0.02 250);
-  --chart-1: oklch(0.65 0.12 85);
-  --chart-2: oklch(0.75 0.15 85);
-  --chart-3: oklch(0.85 0.10 85);
-  --chart-4: oklch(0.45 0.08 250);
-  --chart-5: oklch(0.35 0.06 250);
-  --radius: 0.25rem;
-  
-  /* Deep theatrical blacks */
-  --background: oklch(0.10 0.02 250);
-  --foreground: oklch(0.95 0.005 85);
-  --card: oklch(0.14 0.03 250);
-  --card-foreground: oklch(0.95 0.005 85);
-  --popover: oklch(0.12 0.02 250);
-  --popover-foreground: oklch(0.95 0.005 85);
-  --secondary: oklch(0.18 0.03 250);
-  --secondary-foreground: oklch(0.90 0.005 85);
-  --muted: oklch(0.20 0.03 250);
-  --muted-foreground: oklch(0.60 0.02 250);
-  --accent: oklch(0.75 0.15 85);
-  --accent-foreground: oklch(0.10 0.02 250);
-  --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.25 0.03 250);
-  --input: oklch(0.25 0.03 250);
-  --ring: oklch(0.75 0.15 85);
-  --sidebar: oklch(0.12 0.02 250);
-  --sidebar-foreground: oklch(0.95 0.005 85);
-  --sidebar-accent: oklch(0.18 0.03 250);
-  --sidebar-accent-foreground: oklch(0.95 0.005 85);
-  --sidebar-border: oklch(0.25 0.03 250);
-  --sidebar-ring: oklch(0.75 0.15 85);
+  font-size: 115%; /* Adjusted base font size (reduced by 5%) */
+  /* Deep Indigo - Primary Background */
+  --background: oklch(0.15 0.05 265);
+  --foreground: oklch(0.92 0.005 65); /* Increased brightness for better contrast */
+
+  /* Cyan/Teal - Primary Brand */
+  --primary: oklch(0.75 0.15 180);
+  --primary-foreground: oklch(0.15 0.05 265);
+
+  /* Soft Purple - Secondary/Accent */
+  --secondary: oklch(0.7 0.15 290);
+  --secondary-foreground: oklch(0.98 0.01 265);
+
+  /* Glass/Card Backgrounds */
+  --card: oklch(0.2 0.05 265 / 0.6);
+  --card-foreground: oklch(0.95 0.01 265);
+  --popover: oklch(0.2 0.05 265 / 0.9);
+  --popover-foreground: oklch(0.95 0.01 265);
+
+  /* Muted Text */
+  --muted: oklch(0.3 0.05 265);
+  --muted-foreground: oklch(0.75 0.015 286.067); /* Increased brightness */
+  --accent: oklch(0.75 0.15 180 / 0.1);
+  --accent-foreground: oklch(0.75 0.15 180);
+
+  /* Borders & Inputs */
+  --border: oklch(0.75 0.15 180 / 0.2);
+  --input: oklch(0.75 0.15 180 / 0.2);
+  --ring: oklch(0.75 0.15 180);
+
+  /* Destructive */
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  /* Radius */
+  --radius: 0.75rem;
+
+  /* Sidebar */
+  --sidebar: oklch(0.12 0.05 265);
+  --sidebar-foreground: oklch(0.95 0.01 265);
+  --sidebar-primary: oklch(0.75 0.15 180);
+  --sidebar-primary-foreground: oklch(0.15 0.05 265);
+  --sidebar-accent: oklch(0.25 0.05 265);
+  --sidebar-accent-foreground: oklch(0.95 0.01 265);
+  --sidebar-border: oklch(0.75 0.15 180 / 0.1);
+  --sidebar-ring: oklch(0.75 0.15 180);
+}
+
+.dark {
+  /* Inherit root values as this design is dark-first */
+  --background: oklch(0.15 0.05 265);
+  --foreground: oklch(0.95 0.01 265);
+  --primary: oklch(0.75 0.15 180);
+  --primary-foreground: oklch(0.15 0.05 265);
+  --secondary: oklch(0.7 0.15 290);
+  --secondary-foreground: oklch(0.98 0.01 265);
+  --card: oklch(0.2 0.05 265 / 0.6);
+  --card-foreground: oklch(0.95 0.01 265);
+  --popover: oklch(0.2 0.05 265 / 0.9);
+  --popover-foreground: oklch(0.95 0.01 265);
+  --muted: oklch(0.3 0.05 265);
+  --muted-foreground: oklch(0.7 0.05 265);
+  --accent: oklch(0.75 0.15 180 / 0.1);
+  --accent-foreground: oklch(0.75 0.15 180);
+  --border: oklch(0.75 0.15 180 / 0.2);
+  --input: oklch(0.75 0.15 180 / 0.2);
+  --ring: oklch(0.75 0.15 180);
+  --sidebar: oklch(0.12 0.05 265);
+  --sidebar-foreground: oklch(0.95 0.01 265);
+  --sidebar-primary: oklch(0.75 0.15 180);
+  --sidebar-primary-foreground: oklch(0.15 0.05 265);
+  --sidebar-accent: oklch(0.25 0.05 265);
+  --sidebar-accent-foreground: oklch(0.95 0.01 265);
+  --sidebar-border: oklch(0.75 0.15 180 / 0.1);
+  --sidebar-ring: oklch(0.75 0.15 180);
 }
 
 @layer base {
@@ -91,31 +128,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
-  
-  /* Typography hierarchy */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 600;
-  }
-  
-  h1 {
-    @apply text-5xl md:text-7xl font-bold tracking-tight;
-  }
-  
-  h2 {
-    @apply text-4xl md:text-5xl font-semibold tracking-tight;
-  }
-  
-  h3 {
-    @apply text-3xl md:text-4xl font-semibold;
-  }
-  
-  h4 {
-    @apply text-2xl md:text-3xl font-medium;
-  }
-  
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -130,11 +143,24 @@
 }
 
 @layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem;
+    padding-left: 1rem; /* 16px - mobile padding */
     padding-right: 1rem;
   }
 
@@ -145,143 +171,16 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem;
+      padding-left: 1.5rem; /* 24px - tablet padding */
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem;
+      padding-left: 2rem; /* 32px - desktop padding */
       padding-right: 2rem;
-      max-width: 1280px;
+      max-width: 1280px; /* Standard content width */
     }
   }
-  
-  /* Theatrical stage grid */
-  .stage-grid {
-    background-image: 
-      linear-gradient(oklch(0.75 0.15 85 / 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.75 0.15 85 / 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    background-position: -1px -1px;
-  }
-  
-  /* Spotlight effect */
-  .spotlight {
-    position: relative;
-  }
-  
-  .spotlight::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      ellipse 800px 600px at 50% 0%,
-      oklch(0.85 0.10 85 / 0.08) 0%,
-      transparent 70%
-    );
-    pointer-events: none;
-  }
-  
-  /* Dramatic vignette */
-  .vignette {
-    position: relative;
-  }
-  
-  .vignette::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      ellipse at center,
-      transparent 0%,
-      oklch(0.08 0.02 250 / 0.6) 100%
-    );
-    pointer-events: none;
-  }
-  
-  /* Curtain transition */
-  @keyframes curtain-open {
-    from {
-      clip-path: inset(0 50% 0 50%);
-      opacity: 0;
-    }
-    to {
-      clip-path: inset(0 0% 0 0%);
-      opacity: 1;
-    }
-  }
-  
-  .curtain-reveal {
-    animation: curtain-open 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-  }
-  
-  /* Stage entrance */
-  @keyframes stage-entrance {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .stage-entrance {
-    animation: stage-entrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  
-  /* Parallax layers */
-  .parallax-bg {
-    will-change: transform;
-  }
-  
-  .parallax-mid {
-    will-change: transform;
-  }
-  
-  .parallax-fg {
-    will-change: transform;
-  }
-}
-
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar - theatrical style */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: oklch(0.12 0.02 250);
-  border-left: 1px solid oklch(0.25 0.03 250);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    to bottom,
-    oklch(0.75 0.15 85),
-    oklch(0.65 0.12 85)
-  );
-  border-radius: 6px;
-  border: 2px solid oklch(0.12 0.02 250);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    to bottom,
-    oklch(0.85 0.10 85),
-    oklch(0.75 0.15 85)
-  );
-}
-
-/* Selection color */
-::selection {
-  background: oklch(0.75 0.15 85 / 0.3);
-  color: oklch(0.95 0.005 85);
 }
