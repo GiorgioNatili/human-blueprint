@@ -25,6 +25,7 @@ import AdversarialCollab from "@/components/acts/AdversarialCollab";
 import LoyaltyQuiz from "@/components/acts/LoyaltyQuiz";
 import GapA from "@/components/acts/GapA";
 import GapB from "@/components/acts/GapB";
+import GapC from "@/components/acts/GapC";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -132,6 +133,7 @@ export default function Home() {
       <Act2 />
       <CognitiveImpact /> {/* New Module */}
       <AdversarialCollab />
+      <GapC />
       <Act3 />
       <DeepPillars />
       <UseCases />
