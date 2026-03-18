@@ -21,6 +21,7 @@ import NeuralQA from "@/components/acts/NeuralQA";
 import ResearchDeepDive from "@/components/acts/ResearchDeepDive";
 import EthicsGuardrails from "@/components/acts/EthicsGuardrails";
 import UseCases from "@/components/acts/UseCases";
+import AdversarialCollab from "@/components/acts/AdversarialCollab";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -125,6 +126,7 @@ export default function Home() {
       <Act1 />
       <Act2 />
       <CognitiveImpact /> {/* New Module */}
+      <AdversarialCollab />
       <Act3 />
       <DeepPillars />
       <UseCases />

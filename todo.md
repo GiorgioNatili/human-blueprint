@@ -35,3 +35,9 @@
 - [x] Integrate EthicsGuardrails and UseCases into Home.tsx
 - [x] Write comprehensive CLAUDE.md spec for Claude Code (all remaining improvements)
 - [ ] Push all changes to GitHub (human-blueprint repo)
+
+## Phase 8: Adversarial Collaboration Section
+- [ ] Read Private Speaker Edition adversarial collaboration research
+- [ ] Build AdversarialCollab.tsx component with GSAP animations
+- [ ] Integrate between Act2 and CognitiveImpact in Home.tsx
+- [ ] Save checkpoint and push to GitHub
