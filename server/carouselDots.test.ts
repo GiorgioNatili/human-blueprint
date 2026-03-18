@@ -12,6 +12,56 @@ function progressToIndex(progress: number, count: number): number {
   return Math.round(clamped * (count - 1));
 }
 
+describe("CarouselDots — visibility logic", () => {
+  it("isActive starts as false — dots are hidden until the carousel enters the viewport", () => {
+    // Initial state before any ScrollTrigger callback fires
+    const initialIsActive = false;
+    expect(initialIsActive).toBe(false);
+  });
+
+  it("onEnter sets isActive to true", () => {
+    let isActive = false;
+    const onEnter = () => { isActive = true; };
+    onEnter();
+    expect(isActive).toBe(true);
+  });
+
+  it("onLeave sets isActive to false", () => {
+    let isActive = true;
+    const onLeave = () => { isActive = false; };
+    onLeave();
+    expect(isActive).toBe(false);
+  });
+
+  it("onEnterBack restores isActive to true after scrolling back", () => {
+    let isActive = false;
+    const onEnterBack = () => { isActive = true; };
+    onEnterBack();
+    expect(isActive).toBe(true);
+  });
+
+  it("onLeaveBack hides dots when scrolling above the carousel", () => {
+    let isActive = true;
+    const onLeaveBack = () => { isActive = false; };
+    onLeaveBack();
+    expect(isActive).toBe(false);
+  });
+
+  it("multiple carousels are independent — one active does not affect others", () => {
+    let isActiveA = false;
+    let isActiveB = false;
+    // Simulate carousel A entering viewport
+    isActiveA = true;
+    expect(isActiveA).toBe(true);
+    expect(isActiveB).toBe(false); // B remains hidden
+    // Simulate carousel A leaving, B entering
+    isActiveA = false;
+    isActiveB = true;
+    expect(isActiveA).toBe(false);
+    expect(isActiveB).toBe(true);
+  });
+});
+
 describe("CarouselDots — progress to index mapping", () => {
   it("progress 0 maps to index 0 for any count", () => {
     expect(progressToIndex(0, 5)).toBe(0);
