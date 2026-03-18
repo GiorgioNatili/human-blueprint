@@ -1,12 +1,16 @@
-import { useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Brain, Shield, Users, Scale, Lightbulb } from "lucide-react";
+import CarouselDots from "@/components/CarouselDots";
 
 export default function Scenarios() {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => { setMounted(true); }, []);
 
   const scenarios = [
     {
@@ -91,6 +95,9 @@ export default function Scenarios() {
 
   return (
     <div ref={containerRef} className="relative h-screen bg-black overflow-hidden flex flex-col justify-center">
+      {mounted && (
+        <CarouselDots count={scenarios.length} triggerEl={containerRef.current} />
+      )}
       {/* Immersive Parallax Background */}
       <div ref={bgRef} className="absolute inset-0 w-[150vw] h-full opacity-30 pointer-events-none">
          <img 

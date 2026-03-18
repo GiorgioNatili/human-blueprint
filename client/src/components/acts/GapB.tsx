@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Hammer, Cpu, Bot, Hand, ArrowRight, Layers, type LucideIcon } from "lucide-react";
+import CarouselDots from "@/components/CarouselDots";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -142,6 +143,9 @@ const slides: Slide[] = [
 export default function GapB() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -163,6 +167,9 @@ export default function GapB() {
 
   return (
     <div ref={containerRef} className="relative z-10">
+      {mounted && (
+        <CarouselDots count={slides.length} triggerEl={scrollContainerRef.current} />
+      )}
       <div
         ref={scrollContainerRef}
         style={{ width: `${slides.length * 100}%` }}

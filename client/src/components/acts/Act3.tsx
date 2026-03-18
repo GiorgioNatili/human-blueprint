@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Brain, Handshake, Shield, Zap, type LucideIcon } from "lucide-react";
+import CarouselDots from "@/components/CarouselDots";
 
 interface Pillar {
   id: string;
@@ -68,6 +69,9 @@ const pillars: Pillar[] = [
 export default function Act3() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -91,6 +95,9 @@ export default function Act3() {
 
   return (
     <div ref={containerRef} className="relative z-10">
+      {mounted && (
+        <CarouselDots count={pillars.length} triggerEl={scrollContainerRef.current} />
+      )}
       <div ref={scrollContainerRef} style={{ width: `${pillars.length * 100}%` }} className="h-screen flex flex-nowrap">
         {pillars.map((pillar) => (
           <div
