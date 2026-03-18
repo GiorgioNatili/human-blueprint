@@ -23,6 +23,7 @@ import EthicsGuardrails from "@/components/acts/EthicsGuardrails";
 import UseCases from "@/components/acts/UseCases";
 import AdversarialCollab from "@/components/acts/AdversarialCollab";
 import LoyaltyQuiz from "@/components/acts/LoyaltyQuiz";
+import GapA from "@/components/acts/GapA";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -123,6 +124,7 @@ export default function Home() {
       </section>
 
       {/* Modular Acts */}
+      <GapA />
       <Act0 />
       <Act1 />
       <Act2 />
