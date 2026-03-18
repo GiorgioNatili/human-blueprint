@@ -41,3 +41,4 @@
 - [ ] Build AdversarialCollab.tsx component with GSAP animations
 - [ ] Integrate between Act2 and CognitiveImpact in Home.tsx
 - [ ] Save checkpoint and push to GitHub
+- [x] GAP-E: 7 leadership strategies horizontal carousel after Act5

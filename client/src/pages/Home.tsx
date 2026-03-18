@@ -27,6 +27,7 @@ import GapA from "@/components/acts/GapA";
 import GapB from "@/components/acts/GapB";
 import GapC from "@/components/acts/GapC";
 import GapD from "@/components/acts/GapD";
+import GapE from "@/components/acts/GapE";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -153,6 +154,7 @@ export default function Home() {
       </div>
 
       <Act5 />
+      <GapE />
       <LoyaltyQuiz />
       <ResearchDeepDive />
       <NeuralQA />
