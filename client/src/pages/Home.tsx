@@ -26,6 +26,7 @@ import LoyaltyQuiz from "@/components/acts/LoyaltyQuiz";
 import GapA from "@/components/acts/GapA";
 import GapB from "@/components/acts/GapB";
 import GapC from "@/components/acts/GapC";
+import GapD from "@/components/acts/GapD";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -139,7 +140,8 @@ export default function Home() {
       <UseCases />
       <EthicsGuardrails />
       <Act4 />
-      
+      <GapD />
+
       {/* Added spacing wrapper to prevent collision */}
       <div className="relative z-20">
         <ParadoxExplorer /> 
