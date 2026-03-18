@@ -18,7 +18,7 @@ export default function Scenarios() {
       icon: <Scale className="w-10 h-10 text-cyan-400" />,
       title: "The Civil Right",
       question: "What if AI loyalty becomes the new civil right?",
-      desc: "Imagine a future where having access to a loyal AI agent—one that serves your interests rather than exploiting you—is recognized as a fundamental right.",
+      desc: "Imagine a future where access to a loyal AI agent — one that serves your interests, not the platform's — is recognised as a fundamental right.",
       implication: "This would force a complete restructuring of the data economy. 'Free' services paid for by surveillance would become illegal or obsolete.",
       color: "from-cyan-900/40 to-blue-900/40"
     },
@@ -27,7 +27,7 @@ export default function Scenarios() {
       icon: <Shield className="w-10 h-10 text-purple-400" />,
       title: "The Value Flip",
       question: "What if the most valuable companies of 2030 are those that refused to exploit users in 2025?",
-      desc: "History shows that companies built on trust outlast those built on extraction. What if the current race to monetize user data is actually destroying long-term value?",
+      desc: "Companies built on trust outlast those built on extraction. What if the race to monetise user data is destroying the very value it promises to create?",
       implication: "Investors would shift capital from 'growth at all costs' to 'trust at all costs'. Churn would become the primary metric of failure.",
       color: "from-purple-900/40 to-pink-900/40"
     },
@@ -36,7 +36,7 @@ export default function Scenarios() {
       icon: <Brain className="w-10 h-10 text-emerald-400" />,
       title: "The Judgment Premium",
       question: "What if human judgment becomes more valuable as AI becomes more capable?",
-      desc: "Paradoxically, as AI handles more routine cognitive tasks, human judgment in ambiguous situations becomes more valuable, not less.",
+      desc: "As AI absorbs routine cognitive work, human judgment in ambiguous situations becomes scarcer — and therefore more valuable, not less.",
       implication: "Education would shift from memorization to decision-making. The 'liberal arts' would become the new 'computer science'.",
       color: "from-emerald-900/40 to-teal-900/40"
     },
@@ -45,7 +45,7 @@ export default function Scenarios() {
       icon: <Users className="w-10 h-10 text-amber-400" />,
       title: "Purpose Over Jobs",
       question: "What if the future of work is not about jobs but about purpose?",
-      desc: "If AI handles administrative tasks, humans are freed to focus on work that is meaningful—that requires empathy, creativity, and wisdom.",
+      desc: "If AI absorbs administrative work, humans are freed for what is meaningful — work that requires empathy, creativity, and wisdom.",
       implication: "We would measure economic health not by 'unemployment rate' but by 'fulfillment rate'. Work would become a vehicle for self-actualization.",
       color: "from-amber-900/40 to-orange-900/40"
     },
@@ -54,7 +54,7 @@ export default function Scenarios() {
       icon: <Lightbulb className="w-10 h-10 text-rose-400" />,
       title: "Adversarial Growth",
       question: "What if adversarial collaboration with AI makes us better thinkers?",
-      desc: "If AI challenges our assumptions and sharpens our judgment, we become better decision-makers. What if AI's greatest contribution is not replacing human thinking but improving it?",
+      desc: "If AI challenges our assumptions and sharpens our reasoning, its greatest contribution may not be replacing human thinking — but improving it.",
       implication: "We would stop fearing AI 'hallucinations' and start treating them as 'creative sparks'. The goal would be friction, not smoothness.",
       color: "from-rose-900/40 to-red-900/40"
     }
