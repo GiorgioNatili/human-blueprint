@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -20,15 +21,14 @@ interface CarouselDotsProps {
  * CarouselDots
  *
  * Renders a row of dot indicators that reflect the current slide position
- * in a GSAP-pinned horizontal carousel. The active dot is determined by
- * reading the ScrollTrigger progress on every scroll tick.
+ * in a GSAP-pinned horizontal carousel.
+ *
+ * Uses a React Portal to render into document.body, which keeps the dots
+ * completely outside the GSAP-pinned DOM subtree. This prevents the
+ * "insertBefore" React reconciler error caused by GSAP moving pinned nodes.
  *
  * Usage:
  *   <CarouselDots count={5} triggerEl={scrollContainerRef.current} />
- *
- * The component is self-contained — it creates its own ScrollTrigger
- * observer that mirrors the parent carousel's trigger element, so no
- * changes to the parent's GSAP context are required.
  */
 export default function CarouselDots({ count, triggerEl, className = "" }: CarouselDotsProps) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -37,14 +37,13 @@ export default function CarouselDots({ count, triggerEl, className = "" }: Carou
   useEffect(() => {
     if (!triggerEl || count < 2) return;
 
-    // Create a read-only ScrollTrigger that mirrors the carousel's pinned section.
-    // We use onUpdate to map the 0–1 progress to a discrete slide index.
+    // Mirror the carousel's pinned section with a read-only ScrollTrigger.
+    // onUpdate maps 0–1 progress to a discrete slide index.
     stRef.current = ScrollTrigger.create({
       trigger: triggerEl,
       start: "top top",
       end: () => "+=" + triggerEl.offsetWidth,
       onUpdate: (self) => {
-        // Clamp to avoid floating-point overshoot
         const clamped = Math.min(Math.max(self.progress, 0), 1);
         const index = Math.round(clamped * (count - 1));
         setActiveIndex(index);
@@ -57,11 +56,12 @@ export default function CarouselDots({ count, triggerEl, className = "" }: Carou
     };
   }, [triggerEl, count]);
 
-  if (count < 2) return null;
+  if (count < 2 || !triggerEl) return null;
 
-  return (
+  // Portal renders into document.body — completely outside any GSAP-pinned subtree.
+  return createPortal(
     <div
-      className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 pointer-events-none ${className}`}
+      className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999] flex items-center gap-2 pointer-events-none ${className}`}
       aria-label={`Slide ${activeIndex + 1} of ${count}`}
       role="status"
     >
@@ -76,6 +76,7 @@ export default function CarouselDots({ count, triggerEl, className = "" }: Carou
           aria-hidden="true"
         />
       ))}
-    </div>
+    </div>,
+    document.body
   );
 }
