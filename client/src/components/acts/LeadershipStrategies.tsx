@@ -188,19 +188,19 @@ export default function LeadershipStrategies() {
 
   useEffect(() => {
     if (!containerRef.current || !scrollContainerRef.current) return;
-    const panels = scrollContainerRef.current.querySelectorAll<HTMLElement>(".gape-panel");
+    const panels = gsap.utils.toArray<HTMLElement>(".gape-panel");
     if (!panels.length) return;
 
     const ctx = gsap.context(() => {
-      gsap.to(scrollContainerRef.current, {
+      gsap.to(panels, {
         xPercent: -100 * (panels.length - 1),
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
           pin: true,
-          scrub: 0.5,
+          scrub: 1,
           snap: 1 / (panels.length - 1),
-          end: () => "+=" + (window.innerWidth * (panels.length - 1)),
+          end: () => "+=" + (scrollContainerRef.current?.offsetWidth || 0),
         },
       });
     }, containerRef);
