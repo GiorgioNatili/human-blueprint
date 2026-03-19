@@ -94,7 +94,7 @@ export default function Act3() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative z-10">
+    <div id="section-act3" ref={containerRef} className="relative z-10">
       {mounted && (
         <CarouselDots count={pillars.length} triggerEl={scrollContainerRef.current} />
       )}

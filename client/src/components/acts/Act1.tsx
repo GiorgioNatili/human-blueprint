@@ -81,7 +81,7 @@ export default function Act1() {
   ];
 
   return (
-    <div ref={containerRef} className="relative z-10 bg-background">
+    <div id="section-act1" ref={containerRef} className="relative z-10 bg-background">
       <Section className="text-center">
         {/* Provocative Opening Question */}
         <p className="act1-opener text-lg md:text-xl text-cyan-400/70 font-mono mb-8 max-w-3xl mx-auto italic">

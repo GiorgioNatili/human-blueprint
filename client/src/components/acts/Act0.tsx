@@ -48,7 +48,7 @@ export default function Act0() {
   ];
 
   return (
-    <div ref={containerRef} className="relative z-10 bg-black">
+    <div id="section-act0" ref={containerRef} className="relative z-10 bg-black">
       <Section className="text-center py-20">
         <h2 className="font-heading text-4xl md:text-6xl font-bold mb-8 text-muted-foreground">
           Prologue: The Evolution of Tools

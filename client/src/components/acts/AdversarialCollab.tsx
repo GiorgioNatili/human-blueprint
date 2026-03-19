@@ -148,7 +148,7 @@ export default function AdversarialCollab() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative z-10 bg-black">
+    <div id="section-adversarial" ref={containerRef} className="relative z-10 bg-black">
       <Section className="py-24 px-6 md:px-12 max-w-5xl mx-auto">
 
         {/* Opener */}

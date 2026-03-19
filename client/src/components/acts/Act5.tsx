@@ -43,7 +43,7 @@ export default function Act5() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative z-10 bg-background">
+    <div id="section-act5" ref={containerRef} className="relative z-10 bg-background">
       <Section className="future-section min-h-screen flex flex-col justify-center items-center text-center relative overflow-hidden">
         <div className="future-bg absolute inset-0 z-0">
           <img

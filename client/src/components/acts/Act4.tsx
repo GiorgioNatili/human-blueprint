@@ -43,7 +43,7 @@ export default function Act4() {
   ];
 
   return (
-    <div ref={containerRef} className="relative z-10 bg-black">
+    <div id="section-act4" ref={containerRef} className="relative z-10 bg-black">
       <Section className="text-center py-20">
         <h2 className="font-heading text-5xl md:text-7xl font-bold mb-8">
           Act IV: System Loyalty

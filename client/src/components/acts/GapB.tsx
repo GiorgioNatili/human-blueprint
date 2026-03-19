@@ -166,7 +166,7 @@ export default function GapB() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative z-10">
+    <div id="section-gap-b" ref={containerRef} className="relative z-10">
       {mounted && (
         <CarouselDots count={slides.length} triggerEl={scrollContainerRef.current} />
       )}

@@ -77,7 +77,7 @@ export default function ParadoxExplorer() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative bg-black">
+    <div id="section-paradox" ref={containerRef} className="relative bg-black">
       <div className="py-32 text-center bg-black relative z-10">
         <h2 className="font-heading text-4xl md:text-6xl font-bold text-white mb-4">
           Navigating the Paradoxes

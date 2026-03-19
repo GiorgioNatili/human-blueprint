@@ -44,7 +44,7 @@ export default function Act2() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative z-10 bg-black">
+    <div id="section-act2" ref={containerRef} className="relative z-10 bg-black">
       <div ref={icebergRef} className="h-screen w-full relative overflow-hidden flex flex-col items-center justify-center">
         {/* Deep Underwater Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a192f] via-[#020c1b] to-black z-0" />

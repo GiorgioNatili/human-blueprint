@@ -38,7 +38,7 @@ export default function CognitiveImpact() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative h-screen bg-black overflow-hidden flex items-center justify-center">
+    <div id="section-cognitive-impact" ref={containerRef} className="relative h-screen bg-black overflow-hidden flex items-center justify-center">
       {/* Immersive Background */}
       <div className="absolute inset-0 opacity-10 mix-blend-overlay pointer-events-none" style={{ backgroundImage: `url('https://d2xsxph8kpxj0f.cloudfront.net/310519663267931784/KHL22GhjgeeQPRRyxwJ5K4/texture-noise_a856544f.jpg')` }} />
       <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10" />

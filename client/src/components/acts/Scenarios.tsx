@@ -94,7 +94,7 @@ export default function Scenarios() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative h-screen bg-black overflow-hidden flex flex-col justify-center">
+    <div id="section-scenarios" ref={containerRef} className="relative h-screen bg-black overflow-hidden flex flex-col justify-center">
       {mounted && (
         <CarouselDots count={scenarios.length} triggerEl={containerRef.current} />
       )}

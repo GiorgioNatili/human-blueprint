@@ -125,7 +125,7 @@ export default function EthicsGuardrails() {
   ];
 
   return (
-    <div ref={containerRef} className="relative z-10 bg-black">
+    <div id="section-ethics" ref={containerRef} className="relative z-10 bg-black">
       <Section className="text-center">
         <p className="ethics-opener text-lg md:text-xl text-cyan-400/70 font-mono mb-8 max-w-3xl mx-auto italic">
           "What if loyalty is not a feature you add at the end — but the architecture you start with?"

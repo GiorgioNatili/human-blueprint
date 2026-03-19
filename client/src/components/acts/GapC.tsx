@@ -143,7 +143,7 @@ export default function GapC() {
   return (
     <section
       ref={sectionRef}
-      id="gap-c"
+      id="section-gap-c"
       className="relative z-10 py-32 px-6 bg-gradient-to-b from-background via-slate-950/60 to-background"
     >
       <div className="max-w-5xl mx-auto">

@@ -29,6 +29,7 @@ import GapC from "@/components/acts/GapC";
 import GapD from "@/components/acts/GapD";
 import GapE from "@/components/acts/GapE";
 import GapF from "@/components/acts/GapF";
+import SectionNav from "@/components/SectionNav";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,13 +96,14 @@ export default function Home() {
 
   return (
     <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-sans selection:bg-cyan-500/30" role="main">
+      <SectionNav />
       {/* Persistent 3D Background */}
       <Scene aria-hidden="true">
         <ParticleWorld />
       </Scene>
 
       {/* Hero Section */}
-      <section className="hero-section relative h-screen flex items-center justify-center overflow-hidden z-10">
+      <section id="section-hero" className="hero-section relative h-screen flex items-center justify-center overflow-hidden z-10">
         <div className="hero-bg absolute inset-0 z-0">
           {/* Fallback image for mobile or low-power mode */}
           <img

@@ -100,7 +100,7 @@ export default function UseCases() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative z-10 bg-black">
+    <div id="section-use-cases" ref={containerRef} className="relative z-10 bg-black">
       <Section className="text-center">
         <p className="usecase-opener text-lg md:text-xl text-cyan-400/70 font-mono mb-8 max-w-3xl mx-auto italic">
           "What if the four pillars of human intelligence are the only things standing between a useful tool and an extractive one?"

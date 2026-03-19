@@ -116,7 +116,7 @@ export default function GapF() {
   return (
     <section
       ref={sectionRef}
-      id="resources"
+      id="section-resources"
       className="relative z-10 py-32 bg-black border-t border-white/5"
     >
       {/* Background grid texture */}

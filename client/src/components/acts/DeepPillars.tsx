@@ -90,7 +90,7 @@ export default function DeepPillars() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative bg-black min-h-[400vh] flex">
+    <div id="section-deep-pillars" ref={containerRef} className="relative bg-black min-h-[400vh] flex">
       
       {/* Left Column: Pinned Visual Anchors */}
       <div ref={leftColRef} className="hidden lg:flex w-1/2 h-screen flex-col justify-center items-center border-r border-white/10 bg-black/50 backdrop-blur-sm z-10">

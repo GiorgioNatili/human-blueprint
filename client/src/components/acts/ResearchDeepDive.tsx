@@ -59,7 +59,7 @@ export default function ResearchDeepDive() {
   ];
 
   return (
-    <div className="relative z-10 bg-background py-20 border-t border-white/5">
+    <div id="section-research" className="relative z-10 bg-background py-20 border-t border-white/5">
       <Section>
         <div className="container px-4 max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-8">

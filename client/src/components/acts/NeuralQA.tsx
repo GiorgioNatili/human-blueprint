@@ -30,7 +30,7 @@ export default function NeuralQA() {
   ];
 
   return (
-    <div className="relative z-10 bg-background py-32 border-t border-white/5">
+    <div id="section-qa" className="relative z-10 bg-background py-32 border-t border-white/5">
       <Section>
         <div className="container px-4 max-w-4xl mx-auto">
           <div className="text-center mb-16">

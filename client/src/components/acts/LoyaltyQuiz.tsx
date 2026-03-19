@@ -337,7 +337,7 @@ export default function LoyaltyQuiz() {
   const q = current >= 1 && current <= QUESTIONS.length ? QUESTIONS[current - 1] : null;
 
   return (
-    <div ref={containerRef} className="relative z-10 bg-black">
+    <div id="section-quiz" ref={containerRef} className="relative z-10 bg-black">
       <Section className="py-24 px-6 md:px-12 max-w-3xl mx-auto">
 
         {/* Section Header */}
