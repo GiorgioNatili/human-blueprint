@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FileText, Presentation, BookOpen, ExternalLink, Mail } from "lucide-react";
+import { FileText, Presentation, BookOpen, Download, Mail } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +21,7 @@ const resources = [
     subtitle: "Full Academic Research Report",
     description: "80+ pages of peer-reviewed research covering the Intuition Gap, the 4-Pillar Framework, cross-industry case studies, and the implementation guide for organisations.",
     meta: "PDF · 485 KB · Academic edition",
-    url: "/assets/research-foundation-the-human-blueprint.pdf",
+    url: `${import.meta.env.BASE_URL}assets/research-foundation-the-human-blueprint.pdf`,
     filename: "research-foundation-the-human-blueprint.pdf",
   },
   {
@@ -37,7 +37,7 @@ const resources = [
     subtitle: "The Human Blueprint — Speaker Deck",
     description: "The complete public presentation: all five acts, the Digital Dignity framework, the Adversarial Collaboration model, and the 4-Pillar Framework in slide format.",
     meta: "PDF · 372 KB · Presentation edition",
-    url: "/assets/public-presentation-edition-slides.pdf",
+    url: `${import.meta.env.BASE_URL}assets/public-presentation-edition-slides.pdf`,
     filename: "public-presentation-edition-slides.pdf",
   },
   {
@@ -53,7 +53,7 @@ const resources = [
     subtitle: "Japanese Minimalism & Human-AI Interface Design",
     description: "A companion research document exploring how Japanese aesthetic principles — Ma, Wabi-sabi, and Ichi-go ichi-e — apply to human-AI interface design and Digital Dignity.",
     meta: "PDF · 128 KB · Design research",
-    url: "/assets/design-principles-for-the-agentic-age.pdf",
+    url: `${import.meta.env.BASE_URL}assets/design-principles-for-the-agentic-age.pdf`,
     filename: "design-principles-for-the-agentic-age.pdf",
   },
 ];
@@ -176,12 +176,11 @@ export default function GapF() {
                 <p className="text-xs text-white/25 font-mono mb-4">{res.meta}</p>
                 <a
                   href={res.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  download={res.filename}
                   className={`inline-flex items-center gap-2 text-sm font-semibold ${res.accentColor} group-hover:gap-3 transition-all`}
                 >
-                  <ExternalLink className="w-4 h-4" />
-                  Open PDF
+                  <Download className="w-4 h-4" />
+                  Download PDF
                 </a>
               </div>
             </div>
