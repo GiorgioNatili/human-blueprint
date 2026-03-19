@@ -83,8 +83,8 @@ export default function ResearchDeepDive() {
               <p className="text-sm text-white/50">80+ pages covering the Intuition Gap, the 4-Pillar Framework, and implementation guide.</p>
             </div>
             <a
-              href={`${import.meta.env.BASE_URL}assets/research-foundation-the-human-blueprint.pdf`}
-              download="research-foundation-the-human-blueprint.pdf"
+              href={`${import.meta.env.BASE_URL}assets/human-blueprint-rev02.pdf`}
+              download="human-blueprint-rev02.pdf"
               className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/50 rounded-full transition-all font-bold text-sm hover:scale-105 shrink-0"
             >
               <Download className="w-4 h-4" />

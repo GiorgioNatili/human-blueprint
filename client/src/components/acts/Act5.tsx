@@ -100,7 +100,7 @@ export default function Act5() {
               A vision for a future where technology amplifies the best of humanity rather than diminishing it.
             </p>
             <a
-              href={`${import.meta.env.BASE_URL}Research_Foundation_The_Human_Blueprint.pdf`}
+              href={`${import.meta.env.BASE_URL}assets/human-blueprint-rev02.pdf`}
               download
               className="inline-block mt-8 px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-lg shadow-primary/25"
             >
