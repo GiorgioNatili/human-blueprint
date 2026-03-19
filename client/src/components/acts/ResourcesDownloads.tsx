@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FileText, Presentation, BookOpen, Download, Mail } from "lucide-react";
+import { Presentation, BookOpen, Download, Mail } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,13 +16,14 @@ const resources = [
     bgColor: "bg-cyan-950/20",
     accentColor: "text-cyan-400",
     badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/30",
-    badge: "Research Foundation",
+    badge: "Full Research",
     title: "The Human Blueprint",
-    subtitle: "Full Academic Research Report",
-    description: "80+ pages of peer-reviewed research covering the Intuition Gap, the 4-Pillar Framework, cross-industry case studies, and the implementation guide for organisations.",
-    meta: "PDF · 485 KB · Academic edition",
-    url: `${import.meta.env.BASE_URL}assets/research-foundation-the-human-blueprint.pdf`,
-    filename: "research-foundation-the-human-blueprint.pdf",
+    subtitle: "Academic Research Report",
+    description: "The complete research covering the Intuition Gap, the 4-Pillar Framework, cross-industry case studies, and the implementation guide for organisations.",
+    meta: "PDF · 245 KB",
+    url: `${import.meta.env.BASE_URL}assets/human-blueprint-rev02.pdf`,
+    filename: "human-blueprint-rev02.pdf",
+    downloadLabel: "Download PDF",
   },
   {
     id: "presentation",
@@ -32,29 +33,14 @@ const resources = [
     bgColor: "bg-violet-950/20",
     accentColor: "text-violet-400",
     badgeColor: "bg-violet-500/10 text-violet-400 border-violet-500/30",
-    badge: "Public Edition",
-    title: "Presentation Slides",
-    subtitle: "The Human Blueprint — Speaker Deck",
+    badge: "Presentation",
+    title: "The Human Blueprint",
+    subtitle: "Speaker Deck",
     description: "The complete public presentation: all five acts, the Digital Dignity framework, the Adversarial Collaboration model, and the 4-Pillar Framework in slide format.",
-    meta: "PDF · 372 KB · Presentation edition",
-    url: `${import.meta.env.BASE_URL}assets/public-presentation-edition-slides.pdf`,
-    filename: "public-presentation-edition-slides.pdf",
-  },
-  {
-    id: "japanese",
-    Icon: FileText,
-    iconColor: "text-emerald-400",
-    borderColor: "border-emerald-500/30",
-    bgColor: "bg-emerald-950/20",
-    accentColor: "text-emerald-400",
-    badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
-    badge: "Companion Research",
-    title: "Design Principles for the Agentic Age",
-    subtitle: "Japanese Minimalism & Human-AI Interface Design",
-    description: "A companion research document exploring how Japanese aesthetic principles — Ma, Wabi-sabi, and Ichi-go ichi-e — apply to human-AI interface design and Digital Dignity.",
-    meta: "PDF · 128 KB · Design research",
-    url: `${import.meta.env.BASE_URL}assets/design-principles-for-the-agentic-age.pdf`,
-    filename: "design-principles-for-the-agentic-age.pdf",
+    meta: "PPTX · 287 KB",
+    url: `${import.meta.env.BASE_URL}assets/The_Human_Blueprint.pptx`,
+    filename: "The_Human_Blueprint.pptx",
+    downloadLabel: "Download Presentation",
   },
 ];
 
@@ -144,7 +130,7 @@ export default function ResourcesDownloads() {
         </div>
 
         {/* Resource cards */}
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20 max-w-4xl mx-auto">
           {resources.map((res) => (
             <div
               key={res.id}
@@ -180,7 +166,7 @@ export default function ResourcesDownloads() {
                   className={`inline-flex items-center gap-2 text-sm font-semibold ${res.accentColor} group-hover:gap-3 transition-all`}
                 >
                   <Download className="w-4 h-4" />
-                  Download PDF
+                  {res.downloadLabel}
                 </a>
               </div>
             </div>
