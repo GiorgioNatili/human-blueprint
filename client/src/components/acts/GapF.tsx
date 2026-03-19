@@ -133,7 +133,7 @@ export default function GapF() {
         {/* Section heading */}
         <div ref={headingRef} className="text-center mb-20">
           <span className="text-xs font-mono tracking-[0.3em] uppercase text-cyan-400/60 mb-4 block">
-            GAP-F · Resources & Downloads
+            Resources & Downloads
           </span>
           <h2 className="font-heading text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
             Take the Research With You
@@ -146,13 +146,9 @@ export default function GapF() {
         {/* Resource cards */}
         <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
           {resources.map((res) => (
-            <a
+            <div
               key={res.id}
-              href={res.url}
-              download={res.filename}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group relative flex flex-col rounded-2xl border ${res.borderColor} ${res.bgColor} p-8 transition-all duration-300 hover:scale-[1.02] hover:border-opacity-60 no-underline`}
+              className={`group relative flex flex-col rounded-2xl border ${res.borderColor} ${res.bgColor} p-8 transition-all duration-300 hover:scale-[1.02] hover:border-opacity-60`}
             >
               {/* Badge */}
               <div className="mb-6">
@@ -178,13 +174,37 @@ export default function GapF() {
               {/* Meta + download CTA */}
               <div className="mt-auto">
                 <p className="text-xs text-white/25 font-mono mb-4">{res.meta}</p>
-                <div className={`inline-flex items-center gap-2 text-sm font-semibold ${res.accentColor} group-hover:gap-3 transition-all`}>
+                <a
+                  href={res.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 text-sm font-semibold ${res.accentColor} group-hover:gap-3 transition-all cursor-pointer`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    // Fetch-and-blob download for cross-origin CDN URLs
+                    e.preventDefault();
+                    fetch(res.url)
+                      .then((r) => r.blob())
+                      .then((blob) => {
+                        const blobUrl = URL.createObjectURL(blob);
+                        const link = document.createElement("a");
+                        link.href = blobUrl;
+                        link.download = res.filename;
+                        link.click();
+                        URL.revokeObjectURL(blobUrl);
+                      })
+                      .catch(() => {
+                        // Fallback: open in new tab if fetch fails
+                        window.open(res.url, "_blank");
+                      });
+                  }}
+                >
                   <Download className="w-4 h-4" />
                   Download PDF
                   <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
+                </a>
               </div>
-            </a>
+            </div>
           ))}
         </div>
 
