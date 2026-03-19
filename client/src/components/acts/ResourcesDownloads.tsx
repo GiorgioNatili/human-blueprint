@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Presentation, BookOpen, Download, Mail } from "lucide-react";
+import { Presentation, BookOpen, FileText, Download, Mail } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,20 +9,20 @@ gsap.registerPlugin(ScrollTrigger);
 
 const resources = [
   {
-    id: "research",
-    Icon: BookOpen,
-    iconColor: "text-cyan-400",
-    borderColor: "border-cyan-500/30",
-    bgColor: "bg-cyan-950/20",
-    accentColor: "text-cyan-400",
-    badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/30",
-    badge: "Full Research",
-    title: "The Human Blueprint",
-    subtitle: "Academic Research Report",
-    description: "The complete research covering the Intuition Gap, the 4-Pillar Framework, cross-industry case studies, and the implementation guide for organisations.",
-    meta: "PDF · 245 KB",
-    url: `${import.meta.env.BASE_URL}assets/human-blueprint-rev02.pdf`,
-    filename: "human-blueprint-rev02.pdf",
+    id: "why",
+    Icon: FileText,
+    iconColor: "text-emerald-400",
+    borderColor: "border-emerald-500/30",
+    bgColor: "bg-emerald-950/20",
+    accentColor: "text-emerald-400",
+    badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
+    badge: "Manifesto",
+    title: "Why This Research Exists",
+    subtitle: "The Motivation Behind the Blueprint",
+    description: "A short document explaining the driving questions, personal motivations, and societal concerns that led to The Human Blueprint research.",
+    meta: "PDF · 17 KB",
+    url: `${import.meta.env.BASE_URL}assets/why-this-research-exists.pdf`,
+    filename: "why-this-research-exists.pdf",
     downloadLabel: "Download PDF",
   },
   {
@@ -42,6 +42,23 @@ const resources = [
     filename: "The_Human_Blueprint.pptx",
     downloadLabel: "Download Presentation",
   },
+  {
+    id: "research",
+    Icon: BookOpen,
+    iconColor: "text-cyan-400",
+    borderColor: "border-cyan-500/30",
+    bgColor: "bg-cyan-950/20",
+    accentColor: "text-cyan-400",
+    badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/30",
+    badge: "Full Research",
+    title: "The Human Blueprint",
+    subtitle: "Academic Research Report",
+    description: "The complete research covering the Intuition Gap, the 4-Pillar Framework, cross-industry case studies, and the implementation guide for organisations.",
+    meta: "PDF · 245 KB",
+    url: `${import.meta.env.BASE_URL}assets/human-blueprint-rev02.pdf`,
+    filename: "human-blueprint-rev02.pdf",
+    downloadLabel: "Download PDF",
+  },
 ];
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -57,43 +74,58 @@ export default function ResourcesDownloads() {
 
     const ctx = gsap.context(() => {
       // Heading fade-in
-      gsap.from(headingRef.current, {
-        opacity: 0,
-        y: 40,
-        duration: 0.9,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 85%",
+      gsap.fromTo(
+        headingRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
         },
-      });
+      );
 
       // Cards staggered reveal
       if (cardsRef.current) {
-        gsap.from(cardsRef.current.children, {
-          opacity: 0,
-          y: 50,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: "top 80%",
+        gsap.fromTo(
+          cardsRef.current.children,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: cardsRef.current,
+              start: "top 90%",
+              toggleActions: "play none none none",
+            },
           },
-        });
+        );
       }
 
       // CTA fade-in
-      gsap.from(ctaRef.current, {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ctaRef.current,
-          start: "top 85%",
+      gsap.fromTo(
+        ctaRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ctaRef.current,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
         },
-      });
+      );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -130,7 +162,7 @@ export default function ResourcesDownloads() {
         </div>
 
         {/* Resource cards */}
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20 max-w-4xl mx-auto">
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
           {resources.map((res) => (
             <div
               key={res.id}
