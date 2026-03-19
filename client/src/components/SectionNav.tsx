@@ -1,4 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 // ─── Section map ──────────────────────────────────────────────────────────────
 // Ordered to match the render sequence in Home.tsx
@@ -77,30 +81,45 @@ export default function SectionNav() {
     return () => showObserver.disconnect();
   }, []);
 
-  // Fade out nav when any horizontal carousel is pinned in viewport
+  // Fade out nav when any horizontal carousel is pinned — use ScrollTrigger
   useEffect(() => {
-    const carouselEls = CAROUSEL_IDS
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
+    const triggers: ScrollTrigger[] = [];
 
-    if (carouselEls.length === 0) return;
+    // Small delay to let carousel ScrollTriggers register first
+    const timer = setTimeout(() => {
+      CAROUSEL_IDS.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
 
-    const carouselObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+        const st = ScrollTrigger.create({
+          trigger: el,
+          start: "top bottom",
+          end: "bottom top",
+          onEnter: () => {
             carouselCountRef.current += 1;
-          } else {
+            setCarouselActive(true);
+          },
+          onLeave: () => {
             carouselCountRef.current = Math.max(0, carouselCountRef.current - 1);
-          }
+            setCarouselActive(carouselCountRef.current > 0);
+          },
+          onEnterBack: () => {
+            carouselCountRef.current += 1;
+            setCarouselActive(true);
+          },
+          onLeaveBack: () => {
+            carouselCountRef.current = Math.max(0, carouselCountRef.current - 1);
+            setCarouselActive(carouselCountRef.current > 0);
+          },
         });
-        setCarouselActive(carouselCountRef.current > 0);
-      },
-      { threshold: 0.5 }
-    );
+        triggers.push(st);
+      });
+    }, 500);
 
-    carouselEls.forEach((el) => carouselObserver.observe(el));
-    return () => carouselObserver.disconnect();
+    return () => {
+      clearTimeout(timer);
+      triggers.forEach((st) => st.kill());
+    };
   }, []);
 
   // Track active section via IntersectionObserver
