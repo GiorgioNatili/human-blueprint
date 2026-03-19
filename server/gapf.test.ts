@@ -15,8 +15,8 @@ const resources = [
     subtitle: "Full Academic Research Report",
     description: "80+ pages of peer-reviewed research covering the Intuition Gap, the 4-Pillar Framework, cross-industry case studies, and the implementation guide for organisations.",
     meta: "PDF · 485 KB · Academic edition",
-    url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663267931784/KHL22GhjgeeQPRRyxwJ5K4/Research_Foundation_The_Human_Blueprint_v2_e9ed21ab.pdf",
-    filename: "Research_Foundation_The_Human_Blueprint.pdf",
+    url: "/assets/research-foundation-the-human-blueprint.pdf",
+    filename: "research-foundation-the-human-blueprint.pdf",
   },
   {
     id: "presentation",
@@ -25,18 +25,18 @@ const resources = [
     subtitle: "The Human Blueprint — Speaker Deck",
     description: "The complete public presentation: all five acts, the Digital Dignity framework, the Adversarial Collaboration model, and the 4-Pillar Framework in slide format.",
     meta: "PDF · 372 KB · Presentation edition",
-    url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663267931784/KHL22GhjgeeQPRRyxwJ5K4/Public_Presentation_Edition_Slides_c69da650.pdf",
-    filename: "Public_Presentation_Edition_Slides.pdf",
+    url: "/assets/public-presentation-edition-slides.pdf",
+    filename: "public-presentation-edition-slides.pdf",
   },
   {
     id: "japanese",
     badge: "Companion Research",
-    title: "Japanese Minimalism",
-    subtitle: "Design Principles for the Agentic Age",
+    title: "Design Principles for the Agentic Age",
+    subtitle: "Japanese Minimalism & Human-AI Interface Design",
     description: "A companion research document exploring how Japanese aesthetic principles — Ma, Wabi-sabi, and Ichi-go ichi-e — apply to human-AI interface design and Digital Dignity.",
     meta: "PDF · 128 KB · Design research",
-    url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663267931784/KHL22GhjgeeQPRRyxwJ5K4/Research_Foundation_Japanese_Minimalism_f12bcece.pdf",
-    filename: "Research_Foundation_Japanese_Minimalism.pdf",
+    url: "/assets/design-principles-for-the-agentic-age.pdf",
+    filename: "design-principles-for-the-agentic-age.pdf",
   },
 ];
 
@@ -67,9 +67,9 @@ describe("GapF — Resource count and structure", () => {
 });
 
 describe("GapF — CDN URL integrity", () => {
-  it("all URLs point to the CloudFront CDN", () => {
+  it("all URLs are same-origin /assets/ paths", () => {
     for (const res of resources) {
-      expect(res.url).toMatch(/^https:\/\/d2xsxph8kpxj0f\.cloudfront\.net\//);
+      expect(res.url).toMatch(/^\/assets\/.+\.pdf$/);
     }
   });
 
@@ -85,13 +85,13 @@ describe("GapF — CDN URL integrity", () => {
     }
   });
 
-  it("all URLs contain a content hash (8 hex chars before .pdf)", () => {
+  it("all URLs use kebab-case filenames", () => {
     for (const res of resources) {
-      expect(res.url).toMatch(/_[0-9a-f]{8}\.pdf$/);
+      expect(res.url).toMatch(/^\/assets\/[a-z0-9-]+\.pdf$/);
     }
   });
 
-  it("CDN URLs are unique (no duplicate files)", () => {
+  it("asset URLs are unique (no duplicate files)", () => {
     const urls = resources.map((r) => r.url);
     expect(new Set(urls).size).toBe(urls.length);
   });
@@ -109,9 +109,9 @@ describe("GapF — Content quality", () => {
     expect(res?.description).toContain("Digital Dignity");
   });
 
-  it("japanese resource description mentions Japanese aesthetic principles", () => {
+  it("japanese resource title is 'Design Principles for the Agentic Age'", () => {
     const res = resources.find((r) => r.id === "japanese");
-    expect(res?.description).toContain("Japanese");
+    expect(res?.title).toBe("Design Principles for the Agentic Age");
     expect(res?.description).toContain("Digital Dignity");
   });
 

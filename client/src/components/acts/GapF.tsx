@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FileText, Presentation, BookOpen, Download, ArrowRight, Mail } from "lucide-react";
+import { FileText, Presentation, BookOpen, ExternalLink, Mail } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,8 +21,8 @@ const resources = [
     subtitle: "Full Academic Research Report",
     description: "80+ pages of peer-reviewed research covering the Intuition Gap, the 4-Pillar Framework, cross-industry case studies, and the implementation guide for organisations.",
     meta: "PDF · 485 KB · Academic edition",
-    url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663267931784/KHL22GhjgeeQPRRyxwJ5K4/Research_Foundation_The_Human_Blueprint_v2_e9ed21ab.pdf",
-    filename: "Research_Foundation_The_Human_Blueprint.pdf",
+    url: "/assets/research-foundation-the-human-blueprint.pdf",
+    filename: "research-foundation-the-human-blueprint.pdf",
   },
   {
     id: "presentation",
@@ -37,8 +37,8 @@ const resources = [
     subtitle: "The Human Blueprint — Speaker Deck",
     description: "The complete public presentation: all five acts, the Digital Dignity framework, the Adversarial Collaboration model, and the 4-Pillar Framework in slide format.",
     meta: "PDF · 372 KB · Presentation edition",
-    url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663267931784/KHL22GhjgeeQPRRyxwJ5K4/Public_Presentation_Edition_Slides_c69da650.pdf",
-    filename: "Public_Presentation_Edition_Slides.pdf",
+    url: "/assets/public-presentation-edition-slides.pdf",
+    filename: "public-presentation-edition-slides.pdf",
   },
   {
     id: "japanese",
@@ -49,12 +49,12 @@ const resources = [
     accentColor: "text-emerald-400",
     badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
     badge: "Companion Research",
-    title: "Japanese Minimalism",
-    subtitle: "Design Principles for the Agentic Age",
+    title: "Design Principles for the Agentic Age",
+    subtitle: "Japanese Minimalism & Human-AI Interface Design",
     description: "A companion research document exploring how Japanese aesthetic principles — Ma, Wabi-sabi, and Ichi-go ichi-e — apply to human-AI interface design and Digital Dignity.",
     meta: "PDF · 128 KB · Design research",
-    url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663267931784/KHL22GhjgeeQPRRyxwJ5K4/Research_Foundation_Japanese_Minimalism_f12bcece.pdf",
-    filename: "Research_Foundation_Japanese_Minimalism.pdf",
+    url: "/assets/design-principles-for-the-agentic-age.pdf",
+    filename: "design-principles-for-the-agentic-age.pdf",
   },
 ];
 
@@ -178,30 +178,10 @@ export default function GapF() {
                   href={res.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 text-sm font-semibold ${res.accentColor} group-hover:gap-3 transition-all cursor-pointer`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    // Fetch-and-blob download for cross-origin CDN URLs
-                    e.preventDefault();
-                    fetch(res.url)
-                      .then((r) => r.blob())
-                      .then((blob) => {
-                        const blobUrl = URL.createObjectURL(blob);
-                        const link = document.createElement("a");
-                        link.href = blobUrl;
-                        link.download = res.filename;
-                        link.click();
-                        URL.revokeObjectURL(blobUrl);
-                      })
-                      .catch(() => {
-                        // Fallback: open in new tab if fetch fails
-                        window.open(res.url, "_blank");
-                      });
-                  }}
+                  className={`inline-flex items-center gap-2 text-sm font-semibold ${res.accentColor} group-hover:gap-3 transition-all`}
                 >
-                  <Download className="w-4 h-4" />
-                  Download PDF
-                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ExternalLink className="w-4 h-4" />
+                  Open PDF
                 </a>
               </div>
             </div>
