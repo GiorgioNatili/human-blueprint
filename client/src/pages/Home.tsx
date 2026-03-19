@@ -30,6 +30,7 @@ import GapD from "@/components/acts/GapD";
 import GapE from "@/components/acts/GapE";
 import GapF from "@/components/acts/GapF";
 import SectionNav from "@/components/SectionNav";
+import ProvocativeQuestions from "@/components/acts/ProvocativeQuestions";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -131,6 +132,7 @@ export default function Home() {
       </section>
 
       {/* Modular Acts */}
+      <ProvocativeQuestions />
       <GapA />
       <Act0 />
       <GapB />
