@@ -109,7 +109,7 @@ const slides: Slide[] = [
   },
 ];
 
-export default function GapA() {
+export default function AgenticAIDefinitions() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);

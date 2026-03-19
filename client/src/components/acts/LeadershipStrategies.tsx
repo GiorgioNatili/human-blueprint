@@ -177,7 +177,7 @@ const slides: Slide[] = [
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function GapE() {
+export default function LeadershipStrategies() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
@@ -188,15 +188,15 @@ export default function GapE() {
 
   useEffect(() => {
     if (!containerRef.current || !scrollContainerRef.current) return;
-    const panels = scrollContainerRef.current.querySelectorAll<HTMLElement>(".gape-panel");
+    const panels = gsap.utils.toArray<HTMLElement>(".gape-panel");
     if (!panels.length) return;
 
     const ctx = gsap.context(() => {
-      gsap.to(scrollContainerRef.current, {
+      gsap.to(panels, {
         xPercent: -100 * (panels.length - 1),
         ease: "none",
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: scrollContainerRef.current,
           pin: true,
           scrub: 1,
           snap: 1 / (panels.length - 1),

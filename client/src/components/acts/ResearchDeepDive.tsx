@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Section } from "@/components/ui/Section";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, ChevronDown, ChevronUp, Link as LinkIcon } from "lucide-react";
+import { BookOpen, ChevronDown, ChevronUp, Link as LinkIcon, Download } from "lucide-react";
 
 export default function ResearchDeepDive() {
   const [openSection, setOpenSection] = useState<string | null>(null);
@@ -74,6 +74,22 @@ export default function ResearchDeepDive() {
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Download CTA */}
+          <div className="mb-10 p-6 bg-cyan-950/20 border border-cyan-500/30 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <h3 className="font-heading text-lg font-bold text-white mb-1">Download the Full Research Report</h3>
+              <p className="text-sm text-white/50">80+ pages covering the Intuition Gap, the 4-Pillar Framework, and implementation guide.</p>
+            </div>
+            <a
+              href={`${import.meta.env.BASE_URL}assets/research-foundation-the-human-blueprint.pdf`}
+              download="research-foundation-the-human-blueprint.pdf"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/50 rounded-full transition-all font-bold text-sm hover:scale-105 shrink-0"
+            >
+              <Download className="w-4 h-4" />
+              Download PDF
+            </a>
           </div>
 
           <div className="grid gap-6">

@@ -75,7 +75,7 @@ const contrastRows: ContrastRow[] = [
 
 // ─── Component ───────────────────────────────────────────────────────────────
 
-export default function GapC() {
+export default function FairnessCorruption() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

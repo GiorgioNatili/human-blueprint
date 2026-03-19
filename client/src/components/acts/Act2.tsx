@@ -25,18 +25,44 @@ export default function Act2() {
         // Scale up significantly for immersion
         .to(".iceberg-image", { yPercent: -40, scale: 1.8, duration: 2 }, "<")
         .to(".water-texture", { yPercent: -20, opacity: 0.6, duration: 2 }, "<")
-        
+
       // Phase 2: Submersion (Going Deeper)
         .to(".iceberg-image", { yPercent: -70, scale: 2.2, duration: 2 })
         .to(".water-texture", { yPercent: -50, opacity: 0.8, duration: 2 }, "<")
-        
+
       // Phase 3: The Foundation (Reveal)
-        .fromTo(".foundation-text", 
-          { opacity: 0, y: 100 }, 
+        .fromTo(".foundation-text",
+          { opacity: 0, y: 100 },
           { opacity: 1, y: 0, duration: 1, stagger: 0.3 }
         );
 
-      // ANIMATIONS REMOVED: Depth markers are now static white text.
+      // Depth marker animations — genie magnification effect synced to scroll
+      const markers = gsap.utils.toArray<HTMLElement>(".depth-marker");
+      const colors = ["#22d3ee", "#818cf8", "#a78bfa", "#c084fc"]; // cyan, indigo, purple, violet
+
+      markers.forEach((marker, i) => {
+        const progress = i / markers.length;
+        const startPct = progress * 80; // spread across 0-80% of scroll
+        const endPct = startPct + 25;
+
+        gsap.fromTo(marker,
+          { scale: 1, opacity: 0.4, x: 0, color: "#ffffff" },
+          {
+            scale: 1.5,
+            opacity: 1,
+            x: -20,
+            color: colors[i],
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: icebergRef.current,
+              start: `top+=${startPct}% top`,
+              end: `top+=${endPct}% top`,
+              scrub: 1,
+              toggleActions: "play reverse play reverse",
+            },
+          }
+        );
+      });
 
     }, containerRef);
 
@@ -48,17 +74,17 @@ export default function Act2() {
       <div ref={icebergRef} className="h-screen w-full relative overflow-hidden flex flex-col items-center justify-center">
         {/* Deep Underwater Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a192f] via-[#020c1b] to-black z-0" />
-        
+
         {/* Animated Water Texture Layer for Parallax */}
         <div className="water-texture absolute inset-0 opacity-20 mix-blend-overlay z-0 scale-150 origin-top" style={{ backgroundImage: `url('https://d2xsxph8kpxj0f.cloudfront.net/310519663267931784/KHL22GhjgeeQPRRyxwJ5K4/texture-noise_a856544f.jpg')` }} />
 
-        {/* The Iceberg Image (Full Immersion - Fixed Clipping) */}
+        {/* The Iceberg Image */}
         <div className="iceberg-image absolute w-full h-full z-10 mix-blend-screen opacity-90 pointer-events-none flex items-center justify-center">
            <img
             src={"https://d2xsxph8kpxj0f.cloudfront.net/310519663267931784/KHL22GhjgeeQPRRyxwJ5K4/iceberg-abstract_5bc48d27.png"}
             alt="Abstract Iceberg"
             loading="lazy"
-            className="w-full h-[85vh] object-contain" 
+            className="w-full h-full object-contain"
           />
         </div>
 
@@ -70,12 +96,20 @@ export default function Act2() {
           </p>
         </div>
 
-        {/* Depth Markers (Static White Text) */}
+        {/* Depth Markers — animated with genie magnification on scroll */}
         <div className="absolute right-8 md:right-16 top-0 bottom-0 flex flex-col justify-center gap-[20vh] text-right z-20 pointer-events-none">
-          <div className="depth-marker-item font-mono text-xl md:text-3xl font-bold text-white drop-shadow-glow opacity-80">0m — Surface</div>
-          <div className="depth-marker-item font-mono text-xl md:text-3xl font-bold text-white drop-shadow-glow opacity-80">-100m — Twilight Zone</div>
-          <div className="depth-marker-item font-mono text-xl md:text-3xl font-bold text-white drop-shadow-glow opacity-80">-1000m — Midnight Zone</div>
-          <div className="depth-marker-item font-mono text-xl md:text-3xl font-bold text-white drop-shadow-glow opacity-80">-4000m — The Abyss</div>
+          <div className="depth-marker font-mono text-xl md:text-3xl font-bold text-white opacity-40 origin-right">
+            <span className="tabular-nums">0m</span> — Surface
+          </div>
+          <div className="depth-marker font-mono text-xl md:text-3xl font-bold text-white opacity-40 origin-right">
+            <span className="tabular-nums">-100m</span> — Twilight Zone
+          </div>
+          <div className="depth-marker font-mono text-xl md:text-3xl font-bold text-white opacity-40 origin-right">
+            <span className="tabular-nums">-1000m</span> — Midnight Zone
+          </div>
+          <div className="depth-marker font-mono text-xl md:text-3xl font-bold text-white opacity-40 origin-right">
+            <span className="tabular-nums">-4000m</span> — The Abyss
+          </div>
         </div>
 
         {/* Foundation Content (Revealed at bottom) */}

@@ -23,12 +23,12 @@ import EthicsGuardrails from "@/components/acts/EthicsGuardrails";
 import UseCases from "@/components/acts/UseCases";
 import AdversarialCollab from "@/components/acts/AdversarialCollab";
 import LoyaltyQuiz from "@/components/acts/LoyaltyQuiz";
-import GapA from "@/components/acts/GapA";
-import GapB from "@/components/acts/GapB";
-import GapC from "@/components/acts/GapC";
-import GapD from "@/components/acts/GapD";
-import GapE from "@/components/acts/GapE";
-import GapF from "@/components/acts/GapF";
+import AgenticAIDefinitions from "@/components/acts/AgenticAIDefinitions";
+import AutomationWaves from "@/components/acts/AutomationWaves";
+import FairnessCorruption from "@/components/acts/FairnessCorruption";
+import LoyalAgentContrast from "@/components/acts/LoyalAgentContrast";
+import LeadershipStrategies from "@/components/acts/LeadershipStrategies";
+import ResourcesDownloads from "@/components/acts/ResourcesDownloads";
 import SectionNav from "@/components/SectionNav";
 import ProvocativeQuestions from "@/components/acts/ProvocativeQuestions";
 
@@ -133,20 +133,22 @@ export default function Home() {
 
       {/* Modular Acts */}
       <ProvocativeQuestions />
-      <GapA />
+      <AgenticAIDefinitions />
       <Act0 />
-      <GapB />
+      <AutomationWaves />
       <Act1 />
       <Act2 />
-      <CognitiveImpact /> {/* New Module */}
+      <div className="relative z-20">
+        <CognitiveImpact />
+      </div>
       <AdversarialCollab />
-      <GapC />
+      <FairnessCorruption />
       <Act3 />
       <DeepPillars />
       <UseCases />
       <EthicsGuardrails />
       <Act4 />
-      <GapD />
+      <LoyalAgentContrast />
 
       {/* Added spacing wrapper to prevent collision */}
       <div className="relative z-20">
@@ -159,12 +161,12 @@ export default function Home() {
       </div>
 
       <Act5 />
-      <GapE />
+      <LeadershipStrategies />
       <LoyaltyQuiz />
       <ResearchDeepDive />
       <NeuralQA />
 
-      <GapF />
+      <ResourcesDownloads />
     </div>
   );
 }
