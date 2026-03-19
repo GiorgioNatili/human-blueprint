@@ -196,7 +196,7 @@ export default function LeadershipStrategies() {
         xPercent: -100 * (panels.length - 1),
         ease: "none",
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: scrollContainerRef.current,
           pin: true,
           scrub: 1,
           snap: 1 / (panels.length - 1),
