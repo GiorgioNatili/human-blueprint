@@ -45,13 +45,25 @@ const GROUP_ACTIVE_RING: Record<string, string> = {
   close:     "ring-rose-400/60",
 };
 
+// IDs of all horizontal carousel sections — nav fades out when any of these is pinned
+const CAROUSEL_IDS = [
+  "section-gap-a",
+  "section-gap-b",
+  "section-act3",
+  "section-gap-d",
+  "section-gap-e",
+  "section-scenarios",
+];
+
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function SectionNav() {
   const [activeId, setActiveId] = useState<string>(NAV_SECTIONS[0].id);
   const [hovered, setHovered] = useState<string | null>(null);
   const [visible, setVisible] = useState(false);
+  const [carouselActive, setCarouselActive] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const carouselCountRef = useRef(0);
 
   // Show nav only after user scrolls past the hero
   useEffect(() => {
@@ -63,6 +75,32 @@ export default function SectionNav() {
     );
     showObserver.observe(hero);
     return () => showObserver.disconnect();
+  }, []);
+
+  // Fade out nav when any horizontal carousel is pinned in viewport
+  useEffect(() => {
+    const carouselEls = CAROUSEL_IDS
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    if (carouselEls.length === 0) return;
+
+    const carouselObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            carouselCountRef.current += 1;
+          } else {
+            carouselCountRef.current = Math.max(0, carouselCountRef.current - 1);
+          }
+        });
+        setCarouselActive(carouselCountRef.current > 0);
+      },
+      { threshold: 0.5 }
+    );
+
+    carouselEls.forEach((el) => carouselObserver.observe(el));
+    return () => carouselObserver.disconnect();
   }, []);
 
   // Track active section via IntersectionObserver
@@ -117,7 +155,11 @@ export default function SectionNav() {
     <nav
       aria-label="Section navigation"
       className={`fixed right-5 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-1.5 transition-all duration-500 ${
-        visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8 pointer-events-none"
+        !visible
+          ? "opacity-0 translate-x-8 pointer-events-none"
+          : carouselActive
+          ? "opacity-0 pointer-events-none translate-x-0"
+          : "opacity-100 translate-x-0"
       }`}
     >
       {NAV_SECTIONS.map((section) => {
