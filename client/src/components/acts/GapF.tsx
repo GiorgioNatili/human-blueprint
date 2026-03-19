@@ -200,7 +200,7 @@ export default function GapF() {
             Giorgio Natili delivers keynotes, workshops, and advisory sessions on human-AI collaboration and Digital Dignity.
           </p>
           <a
-            href="mailto:giorgio@giornatili.com"
+            href="mailto:g.natili@gnstudio.com"
             className="inline-flex items-center gap-3 px-8 py-4 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 rounded-full transition-all duration-300 font-bold text-base hover:scale-105"
           >
             <Mail className="w-5 h-5" />
