@@ -140,7 +140,7 @@ const slides: Slide[] = [
   },
 ];
 
-export default function GapB() {
+export default function AutomationWaves() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);

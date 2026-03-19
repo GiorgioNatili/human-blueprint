@@ -179,7 +179,7 @@ const slides: Slide[] = [
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function GapD() {
+export default function LoyalAgentContrast() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);

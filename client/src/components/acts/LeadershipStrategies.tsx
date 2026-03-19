@@ -177,7 +177,7 @@ const slides: Slide[] = [
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function GapE() {
+export default function LeadershipStrategies() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);

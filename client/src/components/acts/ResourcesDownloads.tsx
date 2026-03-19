@@ -60,7 +60,7 @@ const resources = [
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function GapF() {
+export default function ResourcesDownloads() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
