@@ -198,9 +198,9 @@ export default function GapE() {
         scrollTrigger: {
           trigger: containerRef.current,
           pin: true,
-          scrub: 1,
+          scrub: 0.5,
           snap: 1 / (panels.length - 1),
-          end: () => "+=" + (scrollContainerRef.current?.offsetWidth || 0),
+          end: () => "+=" + (window.innerWidth * (panels.length - 1)),
         },
       });
     }, containerRef);
