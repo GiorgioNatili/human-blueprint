@@ -138,7 +138,9 @@ export default function Home() {
       <GapB />
       <Act1 />
       <Act2 />
-      <CognitiveImpact /> {/* New Module */}
+      <div className="relative z-20">
+        <CognitiveImpact />
+      </div>
       <AdversarialCollab />
       <GapC />
       <Act3 />
