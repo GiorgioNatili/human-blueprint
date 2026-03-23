@@ -35,7 +35,7 @@ import ProvocativeQuestions from "@/components/acts/ProvocativeQuestions";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -96,7 +96,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div ref={containerRef} className="bg-background text-foreground overflow-hidden font-sans selection:bg-cyan-500/30" role="main">
+    <main ref={containerRef} className="bg-background text-foreground overflow-hidden font-sans selection:bg-cyan-500/30">
       <SectionNav />
       {/* Persistent 3D Background */}
       <Scene aria-hidden="true">
@@ -166,7 +166,9 @@ export default function Home() {
       <ResearchDeepDive />
       <NeuralQA />
 
-      <ResourcesDownloads />
-    </div>
+      <footer>
+        <ResourcesDownloads />
+      </footer>
+    </main>
   );
 }

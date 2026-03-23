@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Section } from "@/components/ui/Section";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { MessageSquare, ChevronDown, ChevronUp } from "lucide-react";
 
 export default function NeuralQA() {
@@ -67,30 +67,30 @@ export default function NeuralQA() {
                   )}
                 </button>
 
-                <AnimatePresence>
-                  {openIndex === index && (
-                    <motion.div
-                      id={`qa-panel-${index}`}
-                      role="region"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="px-6 pb-6 pt-0">
-                        <div className="p-4 bg-cyan-950/20 rounded-lg border border-cyan-500/10 mb-4">
-                          <span className="text-cyan-400 font-bold text-sm uppercase block mb-1">Short Answer</span>
-                          <p className="text-white/90">{item.short}</p>
-                        </div>
-                        <div className="pl-4 border-l-2 border-white/10">
-                          <p className="text-muted-foreground leading-relaxed">
-                            {item.long}
-                          </p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <motion.div
+                  id={`qa-panel-${index}`}
+                  role="region"
+                  aria-hidden={openIndex !== index}
+                  initial={false}
+                  animate={{
+                    height: openIndex === index ? "auto" : 0,
+                    opacity: openIndex === index ? 1 : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
+                  style={{ overflow: "hidden" }}
+                >
+                  <div className="px-6 pb-6 pt-0">
+                    <div className="p-4 bg-cyan-950/20 rounded-lg border border-cyan-500/10 mb-4">
+                      <span className="text-cyan-400 font-bold text-sm uppercase block mb-1">Short Answer</span>
+                      <p className="text-white/90">{item.short}</p>
+                    </div>
+                    <div className="pl-4 border-l-2 border-white/10">
+                      <p className="text-muted-foreground leading-relaxed">
+                        {item.long}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             ))}
           </div>

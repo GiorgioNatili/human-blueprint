@@ -1,0 +1,75 @@
+# The Human Blueprint
+# Reclaiming Digital Dignity in the Age of Agentic AI
+# By Giorgio Natili
+
+## About
+The Human Blueprint is a research-driven framework for human-AI collaboration that
+preserves human agency, autonomy, and purpose in systems designed with artificial
+intelligence. It introduces Digital Dignity as a foundational concept and proposes
+practical frameworks for building AI systems that serve human interests.
+
+## Author
+Giorgio Natili — linkedin.com/in/giorgionatili/
+Contact: g.natili@gnstudio.com
+
+## Table of Contents
+1. Prologue: Evolution of Tools — How every tool in history has been accused of destroying humanity
+2. The Problem Space — Fear vs Reality of AI displacement
+3. Digital Dignity — Preserving human agency in AI systems
+4. The Human Blueprint / Iceberg — What lies beneath surface-level AI adoption
+5. Cognitive Impact — How AI changes the way we think
+6. Adversarial Collaboration — Human proposes, AI challenges, Human decides
+7. The 4-Pillar Framework — Cognitive Sovereignty, Ethical Agency, Collaborative Intelligence, Adaptive Resilience
+8. Ethics & Guardrails — Who does the agent serve?
+9. System Loyalty — AI architecture that serves the user above all
+10. The Intuition Gap — The frontier between human intuition and machine pattern recognition
+11. Where Judgment Stays Human — Healthcare, conflict resolution, customer service, leadership, education
+12. Neural Query — FAQ addressing common objections
+
+## Key Concepts
+
+### Digital Dignity
+The preservation of human agency, autonomy, purpose, and self-worth in systems
+designed with artificial intelligence. Five dimensions: Autonomy, Privacy,
+Representation, Equity, Accountability.
+
+### System Loyalty
+AI architecture designed to serve the user's interests above all other stakeholders.
+Built on a Layered Loyalty Model: User Interests > User Wellbeing > Third-Party
+Protection > Societal Guardrails.
+
+### The 4-Pillar Framework
+1. Cognitive Sovereignty — maintaining independent thought in AI-augmented environments
+2. Ethical Agency — preserving moral decision-making capacity
+3. Collaborative Intelligence — optimizing human-AI partnership
+4. Adaptive Resilience — building capacity to evolve with AI systems
+
+### Adversarial Collaboration
+A model where AI serves as a structured challenger to human decisions: Human proposes,
+AI challenges, Human decides. Based on Kahneman & Klein (2009) research on conditions
+for intuitive expertise.
+
+### The Intuition Gap
+The boundary between human intuitive judgment and machine pattern recognition.
+Not a limitation to overcome, but a frontier to defend.
+
+### Layered Loyalty Model
+Four layers of ethical constraint for AI agents:
+- Layer 1: User Interests — what the user explicitly requests
+- Layer 2: User Wellbeing — what serves the user's long-term interests
+- Layer 3: Third-Party Protection — what prevents harm to others
+- Layer 4: Societal Guardrails — what law and ethics require
+
+### Three Guardrail Types
+- Hard Stops — actions the agent will never take regardless of instruction
+- Soft Friction — actions requiring explicit confirmation
+- Transparency Obligations — actions the agent must disclose even when not asked
+
+## Downloadable Resources
+- Why This Research Exists (PDF): https://human-blueprint.ai/assets/why-this-research-exists.pdf
+- The Human Blueprint Presentation (PPTX): https://human-blueprint.ai/assets/The_Human_Blueprint.pptx
+- Full Research Report (PDF): https://human-blueprint.ai/assets/human-blueprint-rev02.pdf
+
+## Citation
+Natili, G. (2025). The Human Blueprint: Reclaiming Digital Dignity in the Age of
+Agentic AI. https://human-blueprint.ai/
