@@ -216,13 +216,17 @@ export default function ResourcesDownloads() {
           <p className="text-white/50 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
             Giorgio Natili delivers keynotes, workshops, and advisory sessions on human-AI collaboration and Digital Dignity.
           </p>
-          <a
-            href="mailto:g.natili@gnstudio.com"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 rounded-full transition-all duration-300 font-bold text-base hover:scale-105"
+          <button
+            onClick={() => {
+              const u = ["g", ".", "n", "a", "t", "i", "l", "i"].join("");
+              const d = ["g", "n", "s", "t", "u", "d", "i", "o", ".", "c", "o", "m"].join("");
+              window.location.href = "mai" + "lto:" + u + "@" + d;
+            }}
+            className="inline-flex items-center gap-3 px-8 py-4 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 rounded-full transition-all duration-300 font-bold text-base hover:scale-105 cursor-pointer"
           >
             <Mail className="w-5 h-5" />
             Get in Touch
-          </a>
+          </button>
 
           {/* Disclaimer */}
           <p className="text-xs text-white/20 max-w-2xl mx-auto mt-16 leading-relaxed">

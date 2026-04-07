@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
@@ -6,6 +6,8 @@ import { ArrowDown } from "lucide-react";
 
 import Scene from "@/components/canvas/Scene";
 import ParticleWorld from "@/components/canvas/ParticleWorld";
+import TopNav from "@/components/TopNav";
+import AboutOverlay from "@/components/AboutOverlay";
 
 import Act0 from "@/components/acts/Act0";
 import Act1 from "@/components/acts/Act1";
@@ -36,6 +38,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const containerRef = useRef<HTMLElement>(null);
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const closeAbout = useCallback(() => setAboutOpen(false), []);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -97,6 +101,8 @@ export default function Home() {
 
   return (
     <main ref={containerRef} className="bg-background text-foreground overflow-hidden font-sans selection:bg-cyan-500/30">
+      <TopNav onAboutClick={() => setAboutOpen(true)} />
+      <AboutOverlay isOpen={aboutOpen} onClose={closeAbout} />
       <SectionNav />
       {/* Persistent 3D Background */}
       <Scene aria-hidden="true">
