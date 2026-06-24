@@ -69,6 +69,8 @@ Four layers of ethical constraint for AI agents:
 - Why This Research Exists (PDF): https://human-blueprint.ai/assets/why-this-research-exists.pdf
 - The Human Blueprint Presentation (PPTX): https://human-blueprint.ai/assets/The_Human_Blueprint.pptx
 - Full Research Report (PDF): https://human-blueprint.ai/assets/human-blueprint-rev02.pdf
+- When AI Becomes a Builder — Chicago AI Week 2026 Essay (PDF): https://human-blueprint.ai/assets/When_AI_Becomes_a_Builder.pdf
+- The Human Blueprint — Chicago AI Week 2026 Talk Deck (PPTX): https://human-blueprint.ai/assets/human_blueprint_deck_v7.pptx
 
 ## Citation
 Natili, G. (2025). The Human Blueprint: Reclaiming Digital Dignity in the Age of

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Presentation, BookOpen, FileText, Download, Mail } from "lucide-react";
+import { Presentation, BookOpen, FileText, Hammer, Download, Mail } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,6 +58,40 @@ const resources = [
     url: `${import.meta.env.BASE_URL}assets/human-blueprint-rev02.pdf`,
     filename: "human-blueprint-rev02.pdf",
     downloadLabel: "Download PDF",
+  },
+  {
+    id: "chicago-essay",
+    Icon: Hammer,
+    iconColor: "text-teal-400",
+    borderColor: "border-teal-500/30",
+    bgColor: "bg-teal-950/20",
+    accentColor: "text-teal-400",
+    badgeColor: "bg-teal-500/10 text-teal-400 border-teal-500/30",
+    badge: "Chicago AI Week 2026",
+    title: "When AI Becomes a Builder",
+    subtitle: "Chicago AI Week 2026 · Essay",
+    description: "A field essay on what shifts when AI moves from assistant to builder — and why human judgment, loyalty, and Digital Dignity have to be designed into agentic systems from the start.",
+    meta: "PDF · 68 KB",
+    url: `${import.meta.env.BASE_URL}assets/When_AI_Becomes_a_Builder.pdf`,
+    filename: "When_AI_Becomes_a_Builder.pdf",
+    downloadLabel: "Download PDF",
+  },
+  {
+    id: "chicago-deck",
+    Icon: Presentation,
+    iconColor: "text-indigo-400",
+    borderColor: "border-indigo-500/30",
+    bgColor: "bg-indigo-950/20",
+    accentColor: "text-indigo-400",
+    badgeColor: "bg-indigo-500/10 text-indigo-400 border-indigo-500/30",
+    badge: "Chicago AI Week 2026",
+    title: "The Human Blueprint",
+    subtitle: "Chicago AI Week 2026 · Talk Deck",
+    description: "The speaker deck for “When AI Builds Itself, Digital Dignity Must Be Built In” — the Chicago AI Week 2026 talk on designing self-building AI systems that keep human agency and Digital Dignity at the core.",
+    meta: "PPTX · 392 KB",
+    url: `${import.meta.env.BASE_URL}assets/human_blueprint_deck_v7.pptx`,
+    filename: "human_blueprint_deck_v7.pptx",
+    downloadLabel: "Download Presentation",
   },
 ];
 
@@ -162,11 +196,11 @@ export default function ResourcesDownloads() {
         </div>
 
         {/* Resource cards */}
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+        <div ref={cardsRef} className="flex flex-wrap justify-center gap-6 mb-20">
           {resources.map((res) => (
             <div
               key={res.id}
-              className={`group relative flex flex-col rounded-2xl border ${res.borderColor} ${res.bgColor} p-8 transition-all duration-300 hover:scale-[1.02] hover:border-opacity-60`}
+              className={`group relative flex flex-col w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] rounded-2xl border ${res.borderColor} ${res.bgColor} p-8 transition-all duration-300 hover:scale-[1.02] hover:border-opacity-60`}
             >
               {/* Badge */}
               <div className="mb-6">
