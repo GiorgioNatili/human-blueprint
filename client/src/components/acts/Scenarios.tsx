@@ -119,7 +119,7 @@ export default function Scenarios() {
         </p>
       </div>
 
-      <div ref={cardsRef} style={{ width: `${scenarios.length * 100}vw` }} className="flex h-[70vh] items-center px-4 md:px-20 gap-12">
+      <div ref={cardsRef} role="region" aria-label="Thought experiment scenarios carousel" style={{ width: `${scenarios.length * 100}vw` }} className="flex h-[70vh] items-center px-4 md:px-20 gap-12">
         {scenarios.map((scenario, index) => (
           <div 
             key={scenario.id} 

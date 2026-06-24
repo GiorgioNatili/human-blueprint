@@ -215,6 +215,8 @@ export default function LeadershipStrategies() {
       )}
       <div
         ref={scrollContainerRef}
+        role="region"
+        aria-label="Leadership strategies carousel"
         style={{ width: `${slides.length * 100}%` }}
         className="h-screen flex flex-nowrap"
       >

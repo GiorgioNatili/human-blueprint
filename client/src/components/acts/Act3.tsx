@@ -98,7 +98,7 @@ export default function Act3() {
       {mounted && (
         <CarouselDots count={pillars.length} triggerEl={scrollContainerRef.current} />
       )}
-      <div ref={scrollContainerRef} style={{ width: `${pillars.length * 100}%` }} className="h-screen flex flex-nowrap">
+      <div ref={scrollContainerRef} role="region" aria-label="4-Pillar Framework carousel" style={{ width: `${pillars.length * 100}%` }} className="h-screen flex flex-nowrap">
         {pillars.map((pillar) => (
           <div
             key={pillar.id}

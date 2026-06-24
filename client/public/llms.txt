@@ -10,7 +10,9 @@ practical frameworks for building AI systems that serve human interests.
 
 ## Author
 Giorgio Natili — linkedin.com/in/giorgionatili/
-Contact: via LinkedIn (linkedin.com/in/giorgionatili/)
+Contact: g.natili@gnstudio.com | linkedin.com/in/giorgionatili/
+
+> Full version: https://human-blueprint.ai/llms-full.txt
 
 ## Table of Contents
 1. Prologue: Evolution of Tools — How every tool in history has been accused of destroying humanity

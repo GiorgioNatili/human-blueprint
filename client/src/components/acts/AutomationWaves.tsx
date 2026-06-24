@@ -172,6 +172,8 @@ export default function AutomationWaves() {
       )}
       <div
         ref={scrollContainerRef}
+        role="region"
+        aria-label="Automation waves carousel"
         style={{ width: `${slides.length * 100}%` }}
         className="h-screen flex flex-nowrap"
       >

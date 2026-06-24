@@ -101,6 +101,9 @@ export default function Home() {
 
   return (
     <main ref={containerRef} className="bg-background text-foreground overflow-hidden font-sans selection:bg-cyan-500/30">
+      <a href="#section-hero" className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-cyan-500 focus:text-black">
+        Skip to content
+      </a>
       <TopNav onAboutClick={() => setAboutOpen(true)} />
       <AboutOverlay isOpen={aboutOpen} onClose={closeAbout} />
       <SectionNav />

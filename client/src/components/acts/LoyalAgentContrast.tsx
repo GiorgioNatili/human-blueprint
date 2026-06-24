@@ -213,6 +213,8 @@ export default function LoyalAgentContrast() {
       )}
       <div
         ref={scrollContainerRef}
+        role="region"
+        aria-label="Loyal agent contrast carousel"
         style={{ width: `${slides.length * 100}%` }}
         className="h-screen flex flex-nowrap"
       >
