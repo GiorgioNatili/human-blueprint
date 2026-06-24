@@ -42,3 +42,27 @@
 - [ ] Integrate between Act2 and CognitiveImpact in Home.tsx
 - [ ] Save checkpoint and push to GitHub
 - [x] GAP-E: 7 leadership strategies horizontal carousel after Act5
+
+## Phase 9: Bug Fixes & File Renames (March 2026)
+- [x] Fix SectionNav fade during horizontal scroll (ScrollTrigger-based detection)
+- [x] Fix Act2 iceberg image sizing and depth marker genie magnification
+- [x] Fix Act2/CognitiveImpact section overlap (z-index wrapper)
+- [x] Fix LeadershipStrategies carousel scroll speed (trigger: scrollContainerRef)
+- [x] Add download functionality for research resources (ResearchDeepDive + ResourcesDownloads)
+- [x] Fix contact email to g.natili@gnstudio.com
+- [x] Rename Gap files to meaningful names (GapA→AgenticAIDefinitions, GapB→AutomationWaves, GapC→FairnessCorruption, GapD→LoyalAgentContrast, GapE→LeadershipStrategies, GapF→ResourcesDownloads)
+
+## Phase 10: SEO & Discoverability (June 2026)
+- [x] Add favicon (SVG), web app manifest, and apple-touch-icon
+- [x] Add hero image preload for faster LCP
+- [x] Fix Google Analytics tag mismatch (G-9849MVF1Q3)
+- [x] Update JSON-LD dateModified and add Article image field
+- [x] Add BreadcrumbList schema to JSON-LD
+- [x] Add SpeakableSpecification to Article schema
+- [x] Expand sitemap from 1 to 7 URLs (root + section anchors)
+- [x] Update llms.txt contact info and add link to full version
+- [x] Create llms-full.txt (170+ lines, all sections and references)
+- [x] Add security.txt in .well-known/
+- [x] Add skip-to-content link for keyboard accessibility
+- [x] Add ARIA role="region" and aria-label to all 6 horizontal scroll carousels
+- [x] Create README.md with project documentation and improvement history
