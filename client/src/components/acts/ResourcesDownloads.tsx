@@ -252,8 +252,8 @@ export default function ResourcesDownloads() {
           </p>
           <button
             onClick={() => {
-              const u = ["g", ".", "n", "a", "t", "i", "l", "i"].join("");
-              const d = ["g", "n", "s", "t", "u", "d", "i", "o", ".", "c", "o", "m"].join("");
+              const u = ["g"].join("");
+              const d = ["h","u","m","a","n","-","b","l","u","e","p","r","i","n","t",".","a","i"].join("");
               window.location.href = "mai" + "lto:" + u + "@" + d;
             }}
             className="inline-flex items-center gap-3 px-8 py-4 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 rounded-full transition-all duration-300 font-bold text-base hover:scale-105 cursor-pointer"
